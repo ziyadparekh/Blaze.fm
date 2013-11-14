@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>blaze.fm</title>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet/less" type="text/css" href="/app/css/less/helix.less" />
+	<script src="/app/js/lib/less.js" type="text/javascript"></script>
+	<script type="text/javascript">	less = { env: "development" }; </script>
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+
+</head>
+<body>
+	<div class="container contentzone">
+		<div id="left_column"></div>
+		<div id="center_column">
+			<div id='songContainer' class='containers'></div>
+			<div id='artistContainer' class='containers'></div>
+			<div id='albumContainer' class='containers'></div>
+			<div id='videoContainer' class='containers'></div>
+			<div id='defineContainer' class='containers'></div>
+			<div id='lookupContainer' class='containers'></div>
+		</div>
+		<div id="right_column" class="row"></div>
+	</div>
+	<script type="text/javascript">
+	var endpoint = '/pX';
+	var require = {
+		waitSeconds: 0,
+		urlArgs : "bust="+new Date().getTime()
+	};
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-45757818-1', 'blaze.fm');
+	  ga('send', 'pageview');
+
+	</script>
+	<script data-main="/app/js/main" src="/app/js/lib/require.js"></script>
+</body>
+</html>
