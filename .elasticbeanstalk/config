@@ -1,0 +1,6 @@
+[global]
+AwsCredentialFile=/Users/ziyad/.elasticbeanstalk/aws_credential_file
+ApplicationName=Blaze
+DevToolsEndpoint=git.elasticbeanstalk.us-west-2.amazonaws.com
+EnvironmentName=blazefm
+Region=us-west-2

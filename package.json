@@ -12,7 +12,6 @@
 		"underscore":       "*",
 		"async":            "*",
 		"moment":           "*"
-
 		},
 		"scripts": {
 			"start" : 		"node app.js",
