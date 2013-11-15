@@ -39,8 +39,10 @@ define(['app',
 				var q = $("#Asearch").val();
 				this.i = 0;
 				this.iterator = 0;
-				if(e.which == 13)
+				if(e.which == 13){
 					this.playArtist(q);
+					$(".AnextV").html("");
+				}
 			},
 			playArtist: function(artist){
 				var that = this;
@@ -103,6 +105,7 @@ define(['app',
 				}else{
 					this.currentId = data[0].sc_id;
 					console.log("Releventizing results: playing "+this.lookup);
+					$(".AnextV").html("");	
 					this.play_soundcloud(this.currentId);
 				}
 			},

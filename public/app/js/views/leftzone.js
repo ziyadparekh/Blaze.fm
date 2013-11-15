@@ -3,7 +3,8 @@ define(['app',
 	'templates',
 	'views/songs',
 	'views/artist',
-	'views/video'], function (App, Marionette, templates, Songs, Artist, Video) {
+	'views/queue',
+	'views/video'], function (App, Marionette, templates, Songs, Artist, Queue, Video) {
 		"use strict";
 
 		return Backbone.Marionette.ItemView.extend({
@@ -14,7 +15,7 @@ define(['app',
 			events:{
 				'click .songs' : "load_songs",
 				'click .artist' : "load_artist",
-				'click .album' : "load_album",
+				'click .queue' : "load_queue",
 				'click .video' : "load_video"
 			},
 			onRender: function(){
@@ -51,8 +52,20 @@ define(['app',
 				this.artistView = new Artist({model: model, el: $("#artistContainer")});
 				this.artistView.render();
 			},
-			load_album: function(e){
-				alert();
+			load_queue: function(e){
+				var that = this;
+				$(".containers").hide();
+				this.containers_open = 'queue';
+				$("#queueContainer").show();
+				$(".list li").removeClass("active");
+				$(".queue").addClass("active");
+				if(this.queue_init)
+					return;
+				this.queue_init = true;
+				var queue = Backbone.Model.extend();
+				var model = new queue({});
+				this.queueView = new Queue({model: model, el: $("#queueContainer")});
+				this.queueView.render();
 			},
 			load_video: function(e){
 				var that = this;

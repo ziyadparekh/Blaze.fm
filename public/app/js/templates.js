@@ -10,6 +10,7 @@ define(function(require){
 		tips		        	: require('text!templates/tips.html'),
 		sound		        	: require('text!templates/sound.html'),
 		artist		        	: require('text!templates/artist.html'),
+		queue		        	: require('text!templates/queue.html'),
 	};
 });
 

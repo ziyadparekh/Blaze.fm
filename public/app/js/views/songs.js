@@ -39,8 +39,10 @@ define(['app',
 				var q = $("#search").val();
 				this.i = 0;
 				this.iterator = 0;
-				if(e.which == 13)
+				if(e.which == 13){
 					this.playSong(q);
+					$(".nextV").html("");
+				}
 			},
 			setupSongs: function(tracks){
 				var that = this;
@@ -146,7 +148,7 @@ define(['app',
 			previous_track:function(){
 				if(this.songsQueue){
 					if(this.iterator >= 0){
-						this.iterator = this.iterator - 2;
+						this.iterator = this.iterator - 1;
 						this.setupSongs(this.songsQueue);
 					}
 				}
