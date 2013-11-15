@@ -6,15 +6,9 @@
 	"dependencies": {
 		"express": 			"*",
 		"ejs": 				"*",
-		"connect-dynamodb": "*",
 		"mysql":            "*",
-		"memcache":         "*",
 		"underscore":       "*",
 		"async":            "*",
 		"moment":           "*"
-		},
-		"scripts": {
-			"start" : 		"node app.js",
-			"postinstall" : "npm run-script updatedb"
 		}
 	}
