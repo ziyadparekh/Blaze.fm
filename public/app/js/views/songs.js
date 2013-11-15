@@ -55,7 +55,7 @@ define(['app',
 						this.$el.find(".fa-pause").addClass("fa-play").removeClass("fa-pause");
 					}
 					this.iterator++;
-					this.lookup_db(this.lookup);
+					this.lookup_soundcloud(this.lookup, 0);
 					this.playing = true;
 				}
 			},

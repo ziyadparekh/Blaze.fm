@@ -78,7 +78,7 @@ define(['app',
 						this.iterator++;
 						this.$el.find("#ArtistList").show().animate({'opacity':'1'},200);
 						$(".AritstName").text("Looking for "+this.lookup);
-						this.lookup_db(this.lookup);
+						this.lookup_soundcloud(this.lookup, 0);
 						this.playing = true;
 					}
 				}
