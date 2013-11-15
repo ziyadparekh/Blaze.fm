@@ -130,7 +130,7 @@ define(['app',
 					console.log(that.lookup);
 					if(that.currentTrack)
 						that.currentTrack.stop();
-					that.lookup_db(that.lookup);
+					that.lookup_soundcloud(that.lookup,0);
 					$("#trackList").show().animate({'opacity':'1'},200);
 					$(".songName").text("Looking for "+that.lookup);
 				})
