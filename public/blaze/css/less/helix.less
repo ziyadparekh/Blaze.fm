@@ -1,0 +1,98 @@
+@import "variables.less";
+@import "leftzone.less";
+@import "header.less";
+@import "topic.less";
+@import "tips.less";
+@import "video.less";
+@import "songs.less";
+@import "artist.less";
+@import "queue.less";
+@import "autocomplete.less";
+@import "footer.less";
+@import "tiles.less";
+@import "artistTile.less";
+@import "popup.less";
+@import "leftmenu.less";
+
+html{
+	height: 100%;
+}
+body{
+	font-family: 'Proxima Nova', 'Helvetica Neue','lucida grande',tahoma,verdana,arial,sans-serif;
+	font-weight: 100;
+	margin: 0;
+	height: 100%;
+}
+.contentzone{
+	position: absolute;
+	min-width: 1280px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-image:url('/blaze/img/backgrounds/background1.jpg'); 
+	opacity: 0;
+}
+#searchzone{
+	position: relative;
+	top: 0;
+	left: -1px;
+	min-width: 1280px;
+}
+#center_column{
+	position: relative;
+	float: left;
+	width: 100%;
+}
+#left_column{
+	position: relative;
+	float: left;
+}
+#center{
+	position: relative;
+	float: left;
+	top: 50px;
+	left: 16.3%;
+	margin: auto;
+	width: 45.7%;
+}
+#header_zone{
+	position: relative;
+	width: 100%;
+	height: 42px;
+	font-size: 40px;
+	text-align: center;
+	background-color: transparent;
+	z-index: 3;
+}
+footer{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	background: rgba(255,255,255,0.4);
+}
+#blackout {
+	background: @black;
+	opacity: 0.75;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 10001;
+	display: none;
+	top: 0;
+	left: 0;
+}
+#popup {
+	display: none;
+	width: 450px;
+	z-index: 10002;
+	left: 24%;
+	position: fixed;
+	background-color: #d3e8f2;
+	border-radius: 2px;
+	margin-top: 100px;
+	margin-left: 150px;
+	min-height: 450px;
+	max-height: 500px;
+	overflow-y: scroll;
+
+}

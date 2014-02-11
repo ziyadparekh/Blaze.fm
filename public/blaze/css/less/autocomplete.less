@@ -1,0 +1,115 @@
+#autobox{
+	position: absolute;
+	width: 45.5%;
+	font-size: 11px;
+	top: 37px;
+	left: 20%;
+	border-radius: 3px;
+	display: none;
+	z-index: 200;
+	background: rgba(255,255,255,0.7);
+	color: black;
+	#trackbox{
+		position: relative;
+		width: 100%;
+		top: 0px;
+		float: left;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	#artistbox{
+		position: relative;
+		width: 100%;
+		top: 0px;
+		float: left;
+	}
+	.title{
+		position: relative;
+		float: left;
+		width: 99.3%;
+		text-align: left;
+		margin-top: 0;
+		margin-bottom: 0px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 5px;
+		color: white;
+		font-weight: bold;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			right bottom,
+			color-stop(0, #1D63F0),
+			color-stop(1, #1AD7FD)
+			);
+		background-image: -o-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
+		background-image: -moz-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
+		background-image: -webkit-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
+		background-image: -ms-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
+		background-image: linear-gradient(to right, #1D63F0 0%, #1AD7FD 100%);
+	}
+	.artist{
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+	}
+	.title i{
+		position: relative;
+		font-size: 20px;
+		color: #ffffff;
+		margin-right: 5px;
+		font-weight: bold;
+	}
+	.tracks{
+		position: relative;
+		float: left;
+		width: 100%;
+		padding-top: 3px;
+		padding-bottom: 3px;
+	}
+	.tracks:hover{
+		cursor: pointer;
+		color: black;
+		background-image: -webkit-gradient(
+			linear,
+			right bottom,
+			left bottom,
+			color-stop(0, #5AC8FB),
+			color-stop(1, #52EDC6)
+			);
+		background-image: -o-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
+		background-image: -moz-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
+		background-image: -webkit-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
+		background-image: -ms-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
+		background-image: linear-gradient(to left, #5AC8FB 0%, #52EDC6 100%);
+
+		.fa-chevron-circle-right{
+			color: #D1EEFC
+		}
+	}
+	.trackpic{
+		position: relative;
+		float: left;
+		width: 37px;
+		height: 37px;
+		margin-left: 5px;
+	}
+	.trackname{
+		position: relative;
+		float: left;
+		margin-left: 5px;
+		font-weight: bold;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 85%;
+		text-align: left;
+	}
+	.fa-chevron-circle-right{
+		color: #1AD6FD;
+		font-size: 23px;
+		margin-top: 8px;
+		z-index: 300;
+	}
+}

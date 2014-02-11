@@ -1,0 +1,78 @@
+#leftzone{
+	border-right: 1px solid #d3d6db;
+	position: relative;
+	width: 100%;
+	float: left;
+	height: 100%;
+	min-height: 802px;
+
+	.logo{
+		position: relative;
+		width: 99%;
+		border: 1px solid @border;
+		border-top: 1px solid rgba(255, 255, 255, .08);
+		font-size: 40px;
+		background: @gray;
+		text-align: center;
+		color: @orange;
+		font-weight: lighter;
+	}
+	.leftContainer{
+		position: relative;
+		float: right;
+		margin-top: 40px;
+		width: 55%;
+	}
+	.username{
+		text-align: left;
+		width: 100%;
+		color: #9fafbf;
+		font-size: 11px;
+	}
+	.navigation{
+		position: relative;
+	}
+	.list{
+		margin: 0;
+		list-style-type: none;
+		padding:0;
+		position: relative;
+		width: 100%;
+		float: left;
+	}.fa-music{
+		color: #1e5799;
+	}
+	.fa-user{
+		color: #a82400;
+	}
+	.fa-youtube-play{
+		color: #ff3900;
+	}
+	.fa-th-large{
+		color: #52a2dc;
+	}
+	.list li{
+		display: block;
+		width: 97%;
+		font-size: 11px;
+		position: relative;
+		float: left;
+		left: 0;
+		color: #333;
+		line-height: 13px;
+		padding: 3px;
+	}
+	.list li:hover{
+		background: #d8dfea;
+		cursor: pointer;
+	}
+	.list li:last-child{
+		
+	}
+	.list li i{
+		padding-right: 3px;
+	}
+	.active{
+		background: darken(@blue, 5%);
+	}
+}

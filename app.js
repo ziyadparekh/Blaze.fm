@@ -10,7 +10,7 @@ var index = require('./routes/index'),
 tracks = require('./routes/api/tracks')
 
 app.configure(function(){
-	app.set('port', process.env.PORT || 3000);
+	app.set('port', process.env.PORT || 3010);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'ejs');
 })
@@ -29,4 +29,4 @@ app.get('/tracks', tracks.list);
 // app.put('/topics/:id', topic.edit);
 // app.delete('/topics/:id', topic.remove);
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3010 || 4000);

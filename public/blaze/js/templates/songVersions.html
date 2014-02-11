@@ -1,0 +1,17 @@
+<% console.log(data) %>
+<div class="back">
+	<% if(typeof data.versions == 'string'){ %>
+	<%= data.versions %>
+	<% } else { %>
+	<div class='songBox'>
+		<p class='title'>Remixes</p>
+		<% _.each(data.versions, function(item,i){ %>
+		<div class='listItem'>
+			<% if(!item.image){ item.image = "blaze/img/album_artwork.gif"} %>
+			<img src="<%= item.image %>">
+			<p id= "<%= i %>" class='remix'><a id='<%= item.id %>'><%= item.title %></a></p>
+		</div>	
+		<% }) %>
+		<% }%>
+	</div>
+</div>

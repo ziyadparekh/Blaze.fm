@@ -1,4 +1,4 @@
-	define(['app',
+define(['app',
 	'marionette',
 	'templates',
 	'soundmanager2'], function (App, Marionette, templates, soundManager) {
@@ -23,10 +23,11 @@
 				SC.initialize({
 					client_id: "d6c27f84e482807bac1fd53be96c3b44"
 				});
+				this.songsQueue = new Array();
 			},
-			template: templates.sound,
+			template: templates.queue,
 			events: {
-				'keyup #search' : 'get_query',
+				'keyup #Qsearch' : 'get_query',
 				'click .refresh': 'refresh_song',
 				'click .fa-pause': 'pause_song',
 				'click .fa-play': 'play_song',
@@ -36,7 +37,7 @@
 				'click .special2' : 'trigger_next'
 			},
 			get_query: function(e){
-				var q = $("#search").val();
+				var q = $("#Qsearch").val();
 				this.i = 0;
 				this.iterator = 0;
 				if(e.which == 13){
@@ -67,7 +68,7 @@
 				SC.get("http://api.soundcloud.com/search/sounds", {limit: 20, offset: 0, q: query}, function(tracks){
 					$.each(tracks.collection, function(i, item){
 						if(item.stream_url){
-							that.versions.push(item.title);
+							that.versions.push(item.id);
 							i = i+1;
 						}
 					})
@@ -76,7 +77,7 @@
 						that.currentId = tracks.collection[i].id;
 						that.nextVersion();
 						that.play_soundcloud(that.currentId);
-						$(".songName").text("Playing "+tracks.collection[i].title);
+						$(".QueueName").text("Playing "+tracks.collection[i].title);
 					}
 				});
 			},
@@ -130,16 +131,24 @@
 						that.lookup = that.lookup+that.songArray[0].track[0].artist+" "+that.songArray[0].track[0].name;
 					}
 					console.log(that.lookup);
-					if(that.currentTrack)
-						that.currentTrack.stop();
-					that.lookup_soundcloud(that.lookup,0);
-					$("#trackList").show().animate({'opacity':'1'},200);
-					$(".songName").text("Looking for "+that.lookup);
+					if(!(that.currentTrack)){
+						console.log(that.songsQueue);
+						that.lookup_soundcloud(that.lookup,0);
+						$("#QueueList").show().animate({'opacity':'1'},200);
+						$(".QueueName").text("Looking for "+that.lookup);
+					}
+					else{
+						that.songsQueue.push(that.lookup);
+						console.log(that.songsQueue);
+					}
 				})
+				
 			},
 			check_next: function(){
 				if (this.songsQueue) {
-					this.setupSongs(this.songsQueue);
+					var next_song = this.songsQueue.shift();
+					this.lookup_soundcloud(next_song,0);
+					this.i = 0;
 				}
 			},
 			next_track:function(){
@@ -147,15 +156,19 @@
 			},
 			previous_track:function(){
 				if(this.songsQueue){
-					if(this.iterator >= 0){
+					if(this.iterator > 1){
+						this.iterator = this.iterator - 2;
+						this.lookup_soundcloud(this.songsQueue[this.iterator], 0);
+					}
+					else{
 						this.iterator = this.iterator - 1;
-						this.setupSongs(this.songsQueue);
+						this.lookup_soundcloud(this.songsQueue[this.iterator], 0);
 					}
 				}
 			},
 			refresh_song: function(){
 				this.i += 1
-				this.lookup_soundcloud(this.lookup, this.i);
+				this.play_soundcloud(this.versions[this.i]);
 				this.currentTrack.stop();
 			},
 			pause_song: function(e){
@@ -196,7 +209,7 @@
 				if(this.versions){
 					if(this.i < this.versions.length-1){
 						this.j = this.i + 1;
-						$(".nextV").html("<span class='special'>Next verision: </span><span class='special2'>"+this.versions[this.j]+"</span>")
+						$(".QnextV").html("<span class='special'>Next verision: </span><span class='special2'>"+this.versions[this.j]+"</span>")
 					}
 				}
 			},
