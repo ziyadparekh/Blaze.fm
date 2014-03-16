@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>blazeNew.fm</title>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+	<link rel="shortcut icon" href="/blazeNew/img/blaze_favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet/less" type="text/css" href="/blazeNew/css/less/app.less" />
+	<script src="/bower_components/less/dist/less-1.5.0.js" type="text/javascript"></script>
+	<script type="text/javascript">	less = { env: "development" }; </script>
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+</head>
+<body>
+	<header id="header"></header>
+	<div class='contentzone'>
+		<div id='left' class='col-xs-4'></div>
+		<div id='wrap' class='col-xs-20'>
+			<div class="container" style='width: inherit;'>
+				<div class='row'>
+					<div id="center">Loading...</div>
+					<div id="footer">
+						<div id='queueButton'>Queue</div> 
+						<div id='queue'
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id='leftmenuContainer'></div>
+	<script type="text/javascript">
+	var song = {};
+	var artist = {};
+	var versions = new Array();
+	var songsQueue = new Array();
+	var masterQueue = new Array();
+	var query;
+	var endpoint = '/pX';
+	var require = {
+		waitSeconds: 0,
+		urlArgs : "bust="+new Date().getTime()
+	};
+	</script>
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-45757818-1', 'blaze.fm');
+	ga('send', 'pageview');
+
+	</script>
+	<script data-main="/blazeNew/js/main" src="/bower_components/requirejs/require.js"></script>
+</body>
+</html>

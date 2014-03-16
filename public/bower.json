@@ -1,0 +1,22 @@
+{
+  "name": "Blaze",
+  "version": "0.1.1",
+  "homepage": "https://github.com/Blaze",
+  "authors": [
+    "Ziyad Parekh <ziyad.parekh@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "marionette": "*",
+    "requirejs": "2.1.x",
+    "bootstrap": "3.x.x",
+    "moment": "2.x.x",
+    "less": "1.x.x",
+    "font-awesome": "4.0.x",
+    "bootstrap-paginator": "~1.0.2"
+  }
+}
