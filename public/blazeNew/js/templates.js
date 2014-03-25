@@ -10,6 +10,9 @@ define(function(require){
 		leftmenu      : require('text!templates/leftmenu.html'),
 		queue		  : require('text!templates/queue.html'),
 		queueItem     : require('text!templates/queueItem.html'),
+		likes     	  : require('text!templates/likes.html'),
+		likeItem      : require('text!templates/likeItem.html'),
+		empty     	  : require('text!templates/empty.html'),
 	};
 });
 

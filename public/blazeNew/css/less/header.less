@@ -1,42 +1,88 @@
-.navbar{
-
+header{
+	.navbar{
+		margin-bottom: 10px;
+		min-height: 38px;
+		border-radius: 0px;
+	}
+	.navbar-default{
+		background-color: transparent;
+		border-color: transparent;
+	}
+	.navbar-header>.navbar-brand{
+		height: 38px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color: @white;
+		font-weight: bold;
+	}
+	.navbar-header>.navbar-brand:hover{
+		color: @white;
+		background-color: darken(@blue, 10%)
+	}
+	.navbar-nav > li > a{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color: @white !important;
+	}
+	.navbar-nav > li > a > span{
+		color: darken(@blue, 15%);
+		margin-right: 5px;
+	}
+	.navbar-nav > li > a:hover{
+		color: @white;
+		background-color: darken(@blue, 10%)
+	}
+	.navbar-default .navbar-nav>.dropdown-toggle{
+		padding-right: 9px;
+	}
+	.navbar-default .navbar-nav > li > .dropdown-toggle{
+		padding-right: 9px;
+	}
+	.navbar-default .navbar-nav>.open > a{
+		background-color: @white !important;
+		padding-right: 9px;
+	}
+	.navbar-default .navbar-nav>.open > a:hover{
+		background-color: @white !important;
+		padding-right: 9px;
+	}
+	.navbar-nav > li > .dropdown-menu{
+		border-top-left-radius: 2px !important;
+		top: 93%;
+		border-top: none;
+	}
+	.container{
+		max-width: 940px;
+	}
 	.audio-holder{
-		margin-left: 40px;
-	}
-	#audio-test{
-		width: 100%;
 		position: relative;
-		top: 8px;
+		top: 2px;
+		width: 100% !important;
 	}
-	#search{
-		position: relative;
-		top: 10px;
-		width: 100%;
-
-		#searchBar{
-			width: 89%;
-			border-radius: 10px;
-			border: 1px solid;
-			text-indent: 20px;
-			outline: none;
-		}
-		i{
-			left: 23px;
-			position: relative;
-		}
-		#autobox{
-			position: absolute;
-			top: 34px;
-			left: 35px;
-			width: 80%;
-		}
+	.collapse{
+		width: 40%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		vertical-align: middle;
 	}
-	.navbar-right{
-		width: 25%;
-		li{
-			width: 100%;
-
-			
-		}
+	#searchBar{
+		width: 96%;
+		padding: 6px 8px;
+		outline: none;
+		border: none;
+		border-radius: 3px;
+		font-size: 12px;
+		color: @grayDark;
 	}
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-image: -webkit-gradient(linear,left 0,left 100%,from(@blue),to(darken(@blue, 10%)));
+	background-image: -moz-linear-gradient(top,@blue 0,darken(@blue, 10%) 100%);
+	background-image: linear-gradient(to bottom,@blue 0,darken(@blue, 10%) 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffefefef',endColorstr='#ffc8c8c8',GradientType=0);
+	background-color: darken(@blue, 10%);
+	filter: none!important;
+	-webkit-font-smoothing: antialiased;
 }

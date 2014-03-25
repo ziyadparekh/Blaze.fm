@@ -4,7 +4,9 @@ define(['marionette'],function(marionette) {
 	return marionette.AppRouter.extend({
 
 		appRoutes:{
-			'*actions'					: 'load_modules'
+			'blaze/likes'		: 'load_favorites',
+			'*actions'			: 'load_modules',
+
 			
 		}
 

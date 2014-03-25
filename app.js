@@ -21,7 +21,7 @@ app.use(express.cookieParser());
 app.use(express.bodyParser());
 
 app.get('/', index.index);
-app.get('/blaze', index.blaze);
+app.get('/blaze*', index.blaze);
 
 app.post('/tracks', tracks.create);
 app.get('/tracks', tracks.list);

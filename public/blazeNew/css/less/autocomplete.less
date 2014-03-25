@@ -1,9 +1,9 @@
 #autobox{
 	position: absolute;
-	width: 82.5%;
+	width: 90.5%;
 	font-size: 11px;
-	top: 34px;
-	left: 7%;
+	top: 25px;
+	left: 3%;
 	border-radius: 3px;
 	display: none;
 	z-index: 200;
@@ -33,22 +33,24 @@
 		padding-top: 5px;
 		padding-bottom: 5px;
 		padding-left: 5px;
-		color: white;
-		font-weight: bold;
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;
-		background-image: -webkit-gradient(
-			linear,
-			left bottom,
-			right bottom,
-			color-stop(0, #1D63F0),
-			color-stop(1, #1AD7FD)
-			);
-		background-image: -o-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
-		background-image: -moz-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
-		background-image: -webkit-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
-		background-image: -ms-linear-gradient(right, #1D63F0 0%, #1AD7FD 100%);
-		background-image: linear-gradient(to right, #1D63F0 0%, #1AD7FD 100%);
+		outline: none;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		color: @grayDark;
+		display: inline-block;
+		font-weight: 600;
+		font-size: 14px;
+		background-image: -webkit-gradient(linear,left 0,left 100%,from(darken(#fcfcfc, 10%)),to(darken(#eee, 10%)));
+		background-image: -moz-linear-gradient(top,darken(#fcfcfc, 10%) 0,darken(#eee, 10%) 100%);
+		background-image: linear-gradient(to bottom,darken(#fcfcfc, 10%) 0,darken(#eee, 10%) 100%);
+		background-repeat: repeat-x;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffefefef',endColorstr='#ffc8c8c8',GradientType=0);
+		background-color: darken(#eee, 20%);
+		text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+		filter: none!important;
+		-webkit-font-smoothing: antialiased;
+		font-size: 12px;
 	}
 	.artist{
 		border-top-left-radius: 0px;
@@ -56,8 +58,8 @@
 	}
 	.title i{
 		position: relative;
-		font-size: 20px;
-		color: #ffffff;
+		font-size: 13px;
+		color: @grayDark;
 		margin-right: 5px;
 		font-weight: bold;
 	}
@@ -70,22 +72,11 @@
 	}
 	.tracks:hover{
 		cursor: pointer;
-		color: black;
-		background-image: -webkit-gradient(
-			linear,
-			right bottom,
-			left bottom,
-			color-stop(0, #5AC8FB),
-			color-stop(1, #52EDC6)
-			);
-		background-image: -o-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
-		background-image: -moz-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
-		background-image: -webkit-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
-		background-image: -ms-linear-gradient(left, #5AC8FB 0%, #52EDC6 100%);
-		background-image: linear-gradient(to left, #5AC8FB 0%, #52EDC6 100%);
+		color: @white;
+		background-color: @blue;
 
 		.fa-chevron-circle-right{
-			color: #D1EEFC
+			color: @white
 		}
 	}
 	.trackpic{
@@ -102,11 +93,11 @@
 		font-weight: bold;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		width: 85%;
+		width: 84%;
 		text-align: left;
 	}
 	.fa-chevron-circle-right{
-		color: #1AD6FD;
+		color:@blue;
 		font-size: 23px;
 		margin-top: 8px;
 		z-index: 300;

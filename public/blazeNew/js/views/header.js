@@ -33,12 +33,6 @@ define(['app',
 				'click .leftmenu' : 'openLeftMenu',
 				'click #searchBar': 'clear',
 			},
-			onRender: function(){
-				var that = this;
-				$("#audio-test").bind('ended', function(){
-					that.check_next();
-				});
-			},
 			clear: function(){
 				$("#searchBar").val("");
 				$("#autobox").slideUp().hide();
@@ -49,11 +43,13 @@ define(['app',
 					if(this.leftid === $(e.currentTarget).attr('id')){
 						$("#leftmenu").hide();
 						this.leftmenuopen = false;
+						this.leftmenu.close();
 						return;
 					}else{
 						$("#leftmenu").hide();
 						this.leftmenuopen = false;
 						this.leftid = $(e.currentTarget).attr('id');
+						this.leftmenu.close();
 					}
 				}
 				var top = $(e.currentTarget).offset().top;
@@ -111,7 +107,7 @@ define(['app',
 				$("#autobox").html("");
 				$("#autobox").append(this.autocompleteTemplate({data:this.masterArray}));
 				if(!($("#autobox").is(":visible"))){ 
-					$("#autobox").slideDown();
+					$("#autobox").slideDown("fast");
 				}
 			},
 

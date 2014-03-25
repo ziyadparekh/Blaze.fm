@@ -16,7 +16,7 @@ require.config({
 	},
 	shim : {
 		"bootstrap": ["jquery"],
-		'localstorage' : ['backbone'],
+		localstorage : ['backbone'],
 		jquery : {
 			exports : '$'
 		},
@@ -52,11 +52,12 @@ require(['app',
 	'models/currentSong',
 	'models/defaultSong',
 	'collections/queue',
+	'collections/favorites',
 	'views/header',
 	'views/left',
 	'views/queue',
 	'bootstrap'
-	],function(app,Backbone,Wreqr,Router,Controller, Current, Default, QueueCollection, Header, Left, Queue){
+	],function(app,Backbone,Wreqr,Router,Controller, Current, Default, QueueCollection,Favorites, Header, Left, Queue){
 		"use strict";
 
 		$('body').on('click', 'a', function(e){
@@ -97,7 +98,10 @@ require(['app',
 		app.defaultSong = new Default();
 		//Global Collections;
 		app.queue_collection = new QueueCollection();
-
+		app.favorites = new Favorites();
+		app.favorites.fetch({
+			limit:1
+		});
 		app.headerView = new Header();
 		app.header.show(app.headerView);
 

@@ -1,21 +1,30 @@
 <div>
 	<h4>NAVIGATION</h4>
-	<ul class="nav nav-pills nav-stacked center-block">
-		<li class="active"><a href="#">Songs</a></li>
-		<li><a href="#">Artist</a></li>
-		<li><a href="#">Favorites</a></li>
-		<li><a href="#">History</a></li>
-	</ul>
-	<div id='current_song'>
-		<div class="row">
-			<div class="">
-				<div class="thumbnail">
-					<img src='<%=src%>' data-src="holder.js/300x500" alt="...">
-					<div class="caption">
-						<p><%=name%></p>
-					</div>
+	<ul class="nav nav-stacked center-block">
+		<li class="active"><a href="#">Songs
+			<i class="fa fa-music" style='text-align:right;float:right;margin-top: 5px;'></i>
+		</a></li>
+		<li><a href="#">Artist
+			<i class="fa fa-user" style='text-align:right;float:right;margin-top: 5px;'></i>
+		</a></li>
+		<li><a href="/blaze/likes">Favorites 
+			<i class="fa fa-heart" style='text-align:right;float:right;margin-top: 5px;'></i>
+		</a>
+	</li>
+	<li><a href="#">History
+		<i class="fa fa-clock-o" style='text-align:right;float:right;margin-top: 5px;'></i>
+	</a></li>
+</ul>
+<div id='current_song'>
+	<div class="row">
+		<div class="">
+			<div class="thumbnail">
+				<img src='<%=src%>' data-src="holder.js/300x500" alt="...">
+				<div class="caption">
+					<p><%=name%></p>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>

@@ -2,13 +2,59 @@
 @grid-columns:              24;
 @grid-gutter-width:         15px;
 @icon-font-path: '/bower_components/bootstrap/fonts/';
+@import "variables.less";
 @import "header.less";
 @import "navigation.less";
 @import "left.less";
 @import "autocomplete.less";
 @import "leftmenu.less";
 @import "queue.less";
+@import "empty.less";
+@import "tables.less";
+@import "buttons.less";
 
+
+body{
+	background-color: #e9eaed;
+	font-size: 12px;
+}
 .contentzone{
 	min-width: 1276px;
+}
+.container{
+	max-width: 1040px;
+	max-height: 530px;
+	height: 530px;
+	overflow: hidden;
+}
+#center{
+	max-height: 500px;
+	height: 500px;
+	overflow: scroll;
+}
+footer{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	//background: rgba(255,255,255,0.4);
+}
+#audio-holder{
+	position: fixed;
+	top: 38px;
+	right: 0px;
+	background-color: #000;
+
+	i{
+		position: relative;
+		float: left;
+		font-size: 24px;
+		margin: 5px 10px;
+		color: #888888;
+	}
+
+
+	#audio-test{
+		position: relative;
+		float: left;
+	}
 }

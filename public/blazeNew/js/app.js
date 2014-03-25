@@ -1,9 +1,10 @@
+var app;
 define(
     ['marionette'],
     function(marionette){
         "use strict";
 
-        var app = new marionette.Application();
+        app = new marionette.Application();
         app.addRegions({
             header        : '#header',
             center        : '#center',

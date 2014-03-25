@@ -13,21 +13,26 @@
 </head>
 <body>
 	<header id="header"></header>
+	<div id='audio-holder'>
+		<i class="fa fa-heart"></i>
+		<i class="fa fa-fast-backward"></i>
+		<i class="forward fa fa-fast-forward"></i>
+		<audio id="audio-test" autoplay="autoplay"controls='controls'></audio>
+	</div>
+	<div id='leftmenuContainer'></div>
 	<div class='contentzone'>
-		<div id='left' class='col-xs-4'></div>
-		<div id='wrap' class='col-xs-20'>
-			<div class="container" style='width: inherit;'>
-				<div class='row'>
-					<div id="center">Loading...</div>
-					<div id="footer">
-						<div id='queueButton'>Queue</div> 
-						<div id='queue'
-					</div>
+		<div class="container" style='width: inherit;'>
+			<div class='row'>
+				<div id='left' class='col-xs-4'></div>
+				<div id='wrap' class='col-xs-20'>
+					<div id="center"></div>
 				</div>
+			</div>
+			<div id="footer">
+				<div id='queue'></div>
 			</div>
 		</div>
 	</div>
-	<div id='leftmenuContainer'></div>
 	<script type="text/javascript">
 	var song = {};
 	var artist = {};
