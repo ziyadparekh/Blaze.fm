@@ -56,8 +56,9 @@ require(['app',
 	'views/header',
 	'views/left',
 	'views/queue',
+	'views/player',
 	'bootstrap'
-	],function(app,Backbone,Wreqr,Router,Controller, Current, Default, QueueCollection,Favorites, Header, Left, Queue){
+	],function(app,Backbone,Wreqr,Router,Controller, Current, Default, QueueCollection,Favorites, Header, Left, Queue, Player){
 		"use strict";
 
 		$('body').on('click', 'a', function(e){
@@ -110,6 +111,9 @@ require(['app',
 
 		app.queueView = new Queue({collection: app.queue_collection});
 		app.queue.show(app.queueView)
+
+		app.playerView = new Player({model: app.currentSong, collection: app.queue_collection});
+		app.player.show(app.playerView);
 
 		Backbone.history.start({pushState: true});
 

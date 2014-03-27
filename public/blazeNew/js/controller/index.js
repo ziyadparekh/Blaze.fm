@@ -9,7 +9,12 @@ define([
 				console.log("loaded")
 			},
 			load_favorites: function(){
-				app.center.show(new Likes({pseudomodel: app.currentSong, collection:app.favorites}))
+				if(app.headerView.leftmenu){
+					console.log(app.headerView.leftmenu);
+					app.headerView.leftmenu.close();
+				}
+				app.likesView = new Likes({pseudomodel: app.currentSong, collection:app.favorites})
+				app.center.show(app.likesView)
 			}
 
 		};

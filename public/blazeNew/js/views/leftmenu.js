@@ -27,20 +27,7 @@ define(['app',
 					that.Unshift();
 				}else if(id == 'playLast'){
 					that.Push();
-				}else if(id == 'like'){
-					that.like();
 				}
-			},
-			like: function(){
-				var model = new Backbone.Model();
-				model.set({
-					'id':this.options.id,
-					'src':this.options.src,
-					'name':this.options.name,
-					'source':this.options.source
-				})
-				app.favorites.add(model, {at:0});
-				model.save();
 			},
 			Push: function(){
 				if(this.options.source == 'lastfm'){
@@ -81,7 +68,8 @@ define(['app',
 						'id':this.options.id,
 						'src':this.options.src,
 						'name':this.options.name,
-						'source':this.options.source
+						'source':this.options.source,
+						'liked': this.options.liked
 					})
 				}
 			},

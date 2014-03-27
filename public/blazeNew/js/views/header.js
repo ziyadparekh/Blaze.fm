@@ -39,6 +39,9 @@ define(['app',
 				$("#leftmenu").hide();
 			},
 			openLeftMenu: function(e){
+				if(app.likesView.leftmenu){
+					app.likesView.leftmenu.close();
+				}
 				if(this.leftmenuopen){
 					if(this.leftid === $(e.currentTarget).attr('id')){
 						$("#leftmenu").hide();

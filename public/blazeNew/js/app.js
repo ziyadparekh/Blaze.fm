@@ -10,8 +10,9 @@ define(
             center        : '#center',
             main          : '#main',
             navigation    : '#navigation',
-            left          : '#left',
+            left          : '#leftmenuwrap',
             queue         : '#queue',
+            player        : '#audio-wrap',
         });
         app.strip = function(str) {
             return (str + '').replace(/\\(.?)/g, function (s, n1) {

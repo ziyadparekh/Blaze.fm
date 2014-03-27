@@ -44,16 +44,17 @@ define(['app',
 				setTimeout(function(){
 					if(that.collection.length > 0){
 						var song = that.collection.shift();
-						console.log(song)
 						app.currentSong.set({
 							'id':song.get('id'),
 							'src':song.get('src'),
 							'name':song.get('name'),
-							'source':song.get('source')
+							'source':song.get('source'),
+							'liked': song.get("liked")
 						})
 					}
 				},500)
-				
+			},
+			check_previous: function(){
 
 			}
 

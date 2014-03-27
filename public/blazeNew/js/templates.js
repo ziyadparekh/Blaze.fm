@@ -13,6 +13,7 @@ define(function(require){
 		likes     	  : require('text!templates/likes.html'),
 		likeItem      : require('text!templates/likeItem.html'),
 		empty     	  : require('text!templates/empty.html'),
+		player		  : require('text!templates/player.html'),
 	};
 });
 

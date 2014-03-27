@@ -58,11 +58,12 @@ define(['app',
 				var src = $(e.currentTarget).attr('data-src');
 				var name = $(e.currentTarget).attr('data-name');
 				var source = $(e.currentTarget).attr('data-source');
+				var liked = $(e.currentTarget).attr('data-liked');
 				this.leftid = $(e.currentTarget).attr('id');
 				this.leftmenuopen = true;
 				if(this.leftmenu)
 					this.leftmenu.close();
-				this.leftmenu = new leftMenu({el: $("#leftmenuContainer"), model: app.currentSong, top: top-10, left: left+45, id: id, src: src, name: name, source: source});
+				this.leftmenu = new leftMenu({el: $("#leftmenuContainer"), model: app.currentSong, top: top-10, left: left+45, id: id, src: src, name: name, source: source, liked:liked});
 				this.leftmenu.render();
 				$("#leftmenu").show();
 			},

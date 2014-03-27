@@ -5,13 +5,14 @@
 @import "variables.less";
 @import "header.less";
 @import "navigation.less";
-@import "left.less";
 @import "autocomplete.less";
 @import "leftmenu.less";
 @import "queue.less";
 @import "empty.less";
 @import "tables.less";
 @import "buttons.less";
+@import "non-responsive.less";
+@import "left.less";
 
 
 body{
@@ -24,7 +25,6 @@ body{
 .container{
 	max-width: 1040px;
 	max-height: 530px;
-	height: 530px;
 	overflow: hidden;
 }
 #center{
@@ -38,23 +38,6 @@ footer{
 	width: 100%;
 	//background: rgba(255,255,255,0.4);
 }
-#audio-holder{
-	position: fixed;
-	top: 38px;
-	right: 0px;
-	background-color: #000;
-
-	i{
-		position: relative;
-		float: left;
-		font-size: 24px;
-		margin: 5px 10px;
-		color: #888888;
-	}
-
-
-	#audio-test{
-		position: relative;
-		float: left;
-	}
+.red{
+	color: @red !important;
 }
