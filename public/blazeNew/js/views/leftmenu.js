@@ -39,7 +39,8 @@ define(['app',
 						'id':this.options.id,
 						'src':this.options.src,
 						'name':this.options.name,
-						'source':this.options.source
+						'source':this.options.source,
+						'liked': this.options.liked
 					})
 					app.queue_collection.push(model);
 				}
@@ -54,7 +55,8 @@ define(['app',
 						'id':this.options.id,
 						'src':this.options.src,
 						'name':this.options.name,
-						'source':this.options.source
+						'source':this.options.source,
+						'liked': this.options.liked
 					})
 					app.queue_collection.add(model,{at: 0});
 				}
