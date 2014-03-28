@@ -13,13 +13,7 @@
 </head>
 <body>
 	<header id="header"></header>
-	<div id='audio-wrap'class='audio-wrap'>
-		<div id='audio-holder'>
-			<i class="fa fa-heart"></i>
-			<i class="fa fa-fast-backward"></i>
-			<i class="forward fa fa-fast-forward"></i>
-			<audio id="audio-test" autoplay="autoplay"controls='controls'></audio>
-		</div>
+	<div id='audio-wrap' class='audio-wrap'>
 	</div>
 	<div class='container'>
 		<div id='leftmenuwrap' class='col-xs-8'></div>
@@ -32,11 +26,7 @@
 	</div>
 	<div id='leftmenuContainer'></div>
 	<script type="text/javascript">
-	var song = {};
-	var artist = {};
-	var versions = new Array();
-	var songsQueue = new Array();
-	var masterQueue = new Array();
+	var current;
 	var query;
 	var endpoint = '/pX';
 	var require = {
