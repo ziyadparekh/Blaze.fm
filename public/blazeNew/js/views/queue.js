@@ -12,7 +12,7 @@ define(['app',
 				this.options = options || {};
 				this.collection.on("all", this.render);
 				$("#audio-test").bind('ended', function(){
-					_.once(that.check_next());
+					that.check_next();
 				});
 			},
 			template: templates.queue,

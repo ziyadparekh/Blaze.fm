@@ -24,7 +24,6 @@ define(['app',
 			initialize: function(options){
 				var that = this;
 				this.options = options || {};
-				this.collection.on("all", this.render);
 				this.checkTemplate();
 			},
 			collectionEvents:{
@@ -76,6 +75,25 @@ define(['app',
 					this.itemViewContainer = "#favorites"
 				}
 				this.render();
+			},
+			check_next: function(){
+				var that = this;
+				var index = this.collection.indexOf(app.currentSong);
+				console.log(index);
+				setTimeout(function(){
+					if(index == that.collection.length-1){
+						return;
+					}else{
+						var song = that.collection.at(index+1);
+						app.currentSong.set({
+							'id':song.get('id'),
+							'src':song.get('src'),
+							'name':song.get('name'),
+							'source':song.get('source'),
+							'liked': song.get("liked")
+						})
+					}
+				},500)
 			},
 			onChange:function(){
 				this.checkTemplate();

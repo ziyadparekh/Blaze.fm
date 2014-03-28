@@ -21,8 +21,25 @@ define(['marionette',
 				console.log(this.model)
 			},
 			check_next: function(){
-				console.log(app.queueView)
-				app.queueView.check_next();
+				if(!(app.queue_collection == 0)){
+					app.queueView.check_next();
+				}else{
+					switch(current){
+						// case "song":
+						// break;
+						// case "artist":
+						// app.artistView.check_next();
+						// break;
+						// case "history":
+						// app.historyView.check_next();
+						// break;
+						case "favorites":
+						app.likesView.check_next();
+						break;
+						default:
+						break;
+					}
+				}
 			},
 			onChange:function(){
 				console.log("model change")
