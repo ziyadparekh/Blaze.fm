@@ -11,9 +11,6 @@ define(['app',
 				var that = this;
 				this.options = options || {};
 				this.collection.on("all", this.render);
-				$("#audio-test").bind('ended', function(){
-					that.check_next();
-				});
 			},
 			template: templates.queue,
 			itemView: Item,

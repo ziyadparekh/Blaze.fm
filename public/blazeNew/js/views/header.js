@@ -39,7 +39,7 @@ define(['app',
 				$("#leftmenu").hide();
 			},
 			openLeftMenu: function(e){
-				if(app.likesView.leftmenu){
+				if(app.likesView && app.likesView.leftmenu){
 					app.likesView.leftmenu.close();
 				}
 				if(this.leftmenuopen){

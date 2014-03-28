@@ -17,8 +17,13 @@ define(['marionette',
 				'click .fa-heart': 'like',
 			},
 			onRender:function(){
+				var that = this;
 				console.log("render")
 				console.log(this.model)
+				$("#audio-test").unbind('ended');
+				$("#audio-test").bind('ended', function(){
+					_.once(that.check_next());
+				});
 			},
 			check_next: function(){
 				if(!(app.queue_collection == 0)){
