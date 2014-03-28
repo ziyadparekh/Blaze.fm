@@ -9,6 +9,7 @@ define(['backbone'],
 				"name": "No track selected",
 				"source":"soundcloud",
 				"liked":false,
+				"current":"song",
 			},
 			initialize: function(){
 

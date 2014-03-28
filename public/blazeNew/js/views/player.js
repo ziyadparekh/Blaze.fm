@@ -57,7 +57,8 @@ define(['marionette',
 					'src':app.currentSong.get("src"),
 					'name':app.currentSong.get("name"),
 					'source':app.currentSong.get("source"),
-					'liked': "true"
+					'liked': "true",
+					'current': 'favorite'
 				})
 				if(model.get("id") == 0 || $(e.currentTarget).hasClass("active"))
 					return;
