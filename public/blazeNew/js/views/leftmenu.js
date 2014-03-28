@@ -41,7 +41,7 @@ define(['app',
 						'name':this.options.name,
 						'source':this.options.source,
 						'liked': this.options.liked,
-						"current":this.options.current,
+						"current":"queue",
 
 					})
 					app.queue_collection.push(model);
@@ -59,7 +59,7 @@ define(['app',
 						'name':this.options.name,
 						'source':this.options.source,
 						'liked': this.options.liked,
-						"current":this.options.current,
+						"current":"queue",
 					})
 					app.queue_collection.add(model,{at: 0});
 				}

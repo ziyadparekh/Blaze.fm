@@ -20,16 +20,16 @@ define(['marionette',
 				var that = this;
 				console.log("render")
 				console.log(this.model)
-				$("#audio-test").unbind('ended');
 				$("#audio-test").bind('ended', function(){
 					_.once(that.check_next());
 				});
 			},
 			check_next: function(){
-				if(!(app.queue_collection == 0)){
+				console.log(app.currentSong)
+				if(!(app.queue_collection.length == 0)){
 					app.queueView.check_next();
 				}else{
-					switch(current){
+					switch(app.currentSong.get("current")){
 						// case "song":
 						// break;
 						// case "artist":
@@ -38,7 +38,8 @@ define(['marionette',
 						// case "history":
 						// app.historyView.check_next();
 						// break;
-						case "favorites":
+						case "favorite":
+						console.log("reached here");
 						app.likesView.check_next();
 						break;
 						default:

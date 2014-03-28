@@ -27,7 +27,7 @@ define(['app',
 			},
 			onRender: function(){
 				var that = this;
-				if(!$("#queue").is(":visible") && masterQueue.length > 0){
+				if(!$("#queue").is(":visible")){
 					$("#queue").show();
 				}
 				setTimeout(function(){
@@ -46,7 +46,8 @@ define(['app',
 							'src':song.get('src'),
 							'name':song.get('name'),
 							'source':song.get('source'),
-							'liked': song.get("liked")
+							'liked': song.get("liked"),
+							'current': song.get("current")
 						})
 					}
 				},500)

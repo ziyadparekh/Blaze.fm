@@ -75,11 +75,11 @@ define(['app',
 					this.itemView = Item
 					this.itemViewContainer = "#favorites"
 				}
-				this.render();
+				//this.render();
 			},
 			check_next: function(){
 				var that = this;
-				var index = this.collection.indexOf(app.currentSong);
+				var index = this.collection.indexOf(this.collection.get(app.currentSong.get("id")));
 				console.log(index);
 				setTimeout(function(){
 					if(index == that.collection.length-1){
@@ -91,7 +91,8 @@ define(['app',
 							'src':song.get('src'),
 							'name':song.get('name'),
 							'source':song.get('source'),
-							'liked': song.get("liked")
+							'liked': song.get("liked"),
+							'current': song.get("current")
 						})
 					}
 				},500)
