@@ -28,6 +28,7 @@ define(['app',
 				}else if(id == 'playLast'){
 					that.Push();
 				}
+				this.close();
 			},
 			Push: function(){
 				if(this.options.source == 'lastfm'){
@@ -41,7 +42,7 @@ define(['app',
 						'name':this.options.name,
 						'source':this.options.source,
 						'liked': this.options.liked,
-						"current":"queue",
+						"current":this.options.current,
 
 					})
 					app.queue_collection.push(model);
@@ -59,12 +60,15 @@ define(['app',
 						'name':this.options.name,
 						'source':this.options.source,
 						'liked': this.options.liked,
-						"current":"queue",
+						"current":this.options.current,
 					})
 					app.queue_collection.add(model,{at: 0});
 				}
 			},
 			ChangeSong: function(){
+				// if(this.options.current == 'history'){
+				// 	this.updateHistory();
+				// }
 				if(this.options.source == 'lastfm'){
 					query = ""+this.options.name+" "+this.options.artist+"";
 					//Backbone.trigger("ArtistSong");
@@ -74,7 +78,7 @@ define(['app',
 						'src':this.options.src,
 						'name':this.options.name,
 						'source':this.options.source,
-						'liked': this.options.liked,
+						'liked': this.options.liked == 'true' ? "true" : "false",
 						"current":this.options.current,
 					})
 				}

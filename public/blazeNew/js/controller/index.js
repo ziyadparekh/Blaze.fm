@@ -1,7 +1,8 @@
 define([
 	'app',
-	'views/likes'
-	], function (app, Likes) {
+	'views/likes',
+	'views/history'
+	], function (app, Likes, History) {
 		"use strict";
 
 		return {
@@ -15,6 +16,13 @@ define([
 				}
 				app.likesView = new Likes({pseudomodel: app.currentSong, collection:app.favorites})
 				app.center.show(app.likesView)
+			},
+			load_history: function(){
+				if(app.headerView.leftmenu){
+					app.headerView.leftmenu.close();
+				}
+				app.historyView = new History({pseudomodel: app.currentSong, collection:app.history})
+				app.center.show(app.historyView)
 			}
 
 		};

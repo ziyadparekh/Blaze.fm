@@ -11,8 +11,10 @@ define(function(require){
 		queue		  : require('text!templates/queue.html'),
 		queueItem     : require('text!templates/queueItem.html'),
 		likes     	  : require('text!templates/likes.html'),
+		history       : require('text!templates/history.html'),
 		likeItem      : require('text!templates/likeItem.html'),
 		empty     	  : require('text!templates/empty.html'),
+		emptyHistory  : require('text!templates/emptyHistory.html'),
 		player		  : require('text!templates/player.html'),
 	};
 });

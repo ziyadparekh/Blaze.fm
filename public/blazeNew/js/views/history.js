@@ -14,15 +14,14 @@ define(['app',
 				'click .media-heading':'playNow'
 			},
 			onRender: function(){
-				this.indexInCollection = app.favorites.indexOf(this.model)
+				this.indexInCollection = app.history.indexOf(this.model)
 			},
-			removeItem:function(e){
-				var id = $(e.currentTarget).attr("id");
+			removeItem:function(){
 				this.model.destroy();
 			},
 			playNow: function(){
 				console.log(this.indexInCollection);
-				var model = app.favorites.at(this.indexInCollection);
+				var model = app.history.at(this.indexInCollection);
 				console.log(model)
 				console.log(app.currentSong)
 				app.currentSong.set({
@@ -34,7 +33,7 @@ define(['app',
 					'current': model.get("current")
 				})
 				console.log(app.currentSong);
-				app.history.remove(app.favorites.at(this.indexInCollection))
+				app.history.remove(app.history.at(this.indexInCollection))
 			},
 		});
 
@@ -43,13 +42,14 @@ define(['app',
 				var that = this;
 				this.options = options || {};
 				this.checkTemplate();
+				this.collection.on("all", this.render);
 			},
 			collectionEvents:{
 				'add' : 'onChange',
 				'remove': 'onChange'
 			},
 			events:{
-				'click .leftmenu' : 'openLeftMenu'
+				'click .leftmenu' : 'openLeftMenu',
 			},
 			onRender:function(){
 				console.log(this.collection)
@@ -87,15 +87,14 @@ define(['app',
 			},
 			checkTemplate: function(){
 				if (this.collection.length == 0) {
-					this.template = templates.empty;
+					this.template = templates.emptyHistory;
 					this.itemView = null;
 					this.itemViewContainer = null;
 				}else{
-					this.template = templates.likes
-					this.itemView = Item
-					this.itemViewContainer = "#favorites"
+					this.template = templates.history;
+					this.itemView = Item;
+					this.itemViewContainer = "#history";
 				}
-				//this.render();
 			},
 			check_next: function(){
 				var that = this;

@@ -50,7 +50,8 @@ define(['app',
 							'current': song.get("current")
 						})
 					}
-				},500)
+				},100)
+				console.log("what up")
 			},
 			check_previous: function(){
 

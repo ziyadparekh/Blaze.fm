@@ -7,6 +7,7 @@ define(['marionette',
 		return Marionette.ItemView.extend({
 			initialize: function(options){
 				this.options = options || {};
+				this.model.on("all", this.render);
 			},
 			template: templates.player,
 			modelEvents:{
@@ -18,8 +19,11 @@ define(['marionette',
 			},
 			onRender:function(){
 				var that = this;
+				console.log("model change");
+				this.addToHistory();
 				console.log("render")
 				console.log(this.model)
+				$("#audio-test").unbind()
 				$("#audio-test").bind('ended', function(){
 					_.once(that.check_next());
 				});
@@ -35,9 +39,9 @@ define(['marionette',
 						// case "artist":
 						// app.artistView.check_next();
 						// break;
-						// case "history":
-						// app.historyView.check_next();
-						// break;
+						case "history":
+						app.historyView.check_next();
+						break;
 						case "favorite":
 						console.log("reached here");
 						app.likesView.check_next();
@@ -48,8 +52,22 @@ define(['marionette',
 				}
 			},
 			onChange:function(){
-				console.log("model change")
-				this.render();
+				
+			},
+			addToHistory: function(){
+				var model = new Backbone.Model();
+				model.set({
+					'id':app.currentSong.get("id"),
+					'src':app.currentSong.get("src"),
+					'name':app.currentSong.get("name"),
+					'source':app.currentSong.get("source"),
+					'liked': app.currentSong.get("liked"),
+					'current': 'history'
+				})
+				if(model.get("id") == 0)
+					return;
+				app.history.add(model, {at:0});
+				model.save();
 			},
 			like: function(e){
 				var model = new Backbone.Model();

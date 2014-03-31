@@ -8,7 +8,7 @@ define(['backbone'],
 				"src": "/blazeNew/img/album_artwork.gif",
 				"name": "No track selected",
 				"source":"soundcloud",
-				"liked":false,
+				"liked":"false",
 				"current":"song",
 			},
 			initialize: function(){

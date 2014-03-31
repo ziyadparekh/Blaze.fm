@@ -53,12 +53,13 @@ require(['app',
 	'models/defaultSong',
 	'collections/queue',
 	'collections/favorites',
+	'collections/history',
 	'views/header',
 	'views/left',
 	'views/queue',
 	'views/player',
 	'bootstrap'
-	],function(app,Backbone,Wreqr,Router,Controller, Current, Default, QueueCollection,Favorites, Header, Left, Queue, Player){
+	],function(app,Backbone,Wreqr,Router,Controller, Current, Default, QueueCollection,Favorites, HistoryCollection, Header, Left, Queue, Player){
 		"use strict";
 
 		$('body').on('click', 'a', function(e){
@@ -97,12 +98,15 @@ require(['app',
 		//Global Models;
 		app.currentSong = new Current();
 		app.defaultSong = new Default();
+
 		//Global Collections;
 		app.queue_collection = new QueueCollection();
 		app.favorites = new Favorites();
-		app.favorites.fetch({
-			limit:1
-		});
+		app.favorites.fetch();
+		app.history = new HistoryCollection();
+		app.history.fetch();
+		app.history.models = app.history.models.length>0 ? app.history.models.reverse() : [];
+
 		app.headerView = new Header();
 		app.header.show(app.headerView);
 

@@ -5,6 +5,7 @@ define(['marionette'],function(marionette) {
 
 		appRoutes:{
 			'blaze/likes'		: 'load_favorites',
+			'blaze/history'		: 'load_history',
 			'*actions'			: 'load_modules',
 
 			
