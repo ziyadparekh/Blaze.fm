@@ -73,6 +73,8 @@ require(['app',
 				$("html, body").delay(200).animate({ scrollTop: 0 }, 300);
 			}
 		});
+		
+		
 		Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
 			var template = templateId;
 			if (!template || template.length === 0){

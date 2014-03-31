@@ -6,8 +6,18 @@ define(['marionette',
 	function (Marionette, Backbone, app, templates){
 		return Marionette.ItemView.extend({
 			initialize: function(options){
+				var that = this;
 				this.options = options || {};
 				this.model.on("all", this.render);
+				// $('body').keypress(function(e){
+				// 	if(e.keyCode == 32){
+				// 		if(!that.isPlaying("audio-test"))
+				// 			$("#audio-test").play()
+				// 		else
+				// 			$("audio").pause();
+				// 	}
+				// })
+
 			},
 			template: templates.player,
 			modelEvents:{
@@ -15,18 +25,27 @@ define(['marionette',
 			},
 			events:{
 				'click .fa-fast-forward': 'check_next',
-				'click .fa-heart': 'like',
+				'click .fa-star': 'like',
+				'keypress #audio-holder': 'pauseSong'
+			},
+			isPlaying: function (playerId) {
+			    var player = document.getElementById(playerId);
+			    return !player.paused && !player.ended && 0 < player.currentTime;
+			},
+			pauseSong: function(e){
+				alert(e.keyCode)
+				if(e.keyCode == 32)
+					alert();
 			},
 			onRender:function(){
 				var that = this;
 				console.log("model change");
-				this.addToHistory();
 				console.log("render")
 				console.log(this.model)
-				$("#audio-test").unbind()
 				$("#audio-test").bind('ended', function(){
 					_.once(that.check_next());
 				});
+				this.addToHistory();
 			},
 			check_next: function(){
 				console.log(app.currentSong)
@@ -66,7 +85,7 @@ define(['marionette',
 				})
 				if(model.get("id") == 0)
 					return;
-				app.history.add(model, {at:0});
+				app.history.create(model, {at:0});
 				model.save();
 			},
 			like: function(e){
@@ -81,7 +100,7 @@ define(['marionette',
 				})
 				if(model.get("id") == 0 || $(e.currentTarget).hasClass("active"))
 					return;
-				$(e.currentTarget).addClass("red");
+				$(e.currentTarget).addClass("yellow");
 				app.favorites.add(model, {at:0});
 				model.save();
 			}

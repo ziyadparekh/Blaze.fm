@@ -24,6 +24,7 @@ define(['app',
 				var model = app.history.at(this.indexInCollection);
 				console.log(model)
 				console.log(app.currentSong)
+				app.history.remove(app.history.at(this.indexInCollection))
 				app.currentSong.set({
 					'id':model.get('id'),
 					'src':model.get('src'),
@@ -33,7 +34,7 @@ define(['app',
 					'current': model.get("current")
 				})
 				console.log(app.currentSong);
-				app.history.remove(app.history.at(this.indexInCollection))
+				console.log(app.history)
 			},
 		});
 
@@ -42,7 +43,7 @@ define(['app',
 				var that = this;
 				this.options = options || {};
 				this.checkTemplate();
-				this.collection.on("all", this.render);
+				app.history.on("all", this.render);
 			},
 			collectionEvents:{
 				'add' : 'onChange',
@@ -86,7 +87,7 @@ define(['app',
 				$("#leftmenu").show();
 			},
 			checkTemplate: function(){
-				if (this.collection.length == 0) {
+				if(app.history.length == 0) {
 					this.template = templates.emptyHistory;
 					this.itemView = null;
 					this.itemViewContainer = null;

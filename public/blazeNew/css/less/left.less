@@ -2,7 +2,8 @@
 	position: relative;
 	float: left;
 	width: 23%;
-	background-color: transparent;
+	background-color: @white;
+	margin-right: 13.5px;
 }
 	// #left{
 	// 	position: absolute;
@@ -39,29 +40,43 @@
 	// 	width: 56% !important;
 	// }
 	#footer{
-		padding-left: 10px;
 		padding-right: 10px;
 	}
 	.nav{
-		margin-bottom: 90px;
+		margin-bottom: 43px;
+		margin-top: 71px;
 	}
 	.nav>li>a{
-		color: @blaze;
-		padding: 7px 15px;
-		border-radius: 18px;
-		background-image: url('/blazeNew/img/backgrounds/background.png');
-		background-position-x: -210px;
-		background-position-y: -110px;
-		background-size: 210px;
-		background-repeat: no-repeat;
+		font: 20px/15px "ars-maquette-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #60f;
+		text-transform: uppercase;
 	}
-	.nav>li>a:hover{
-		color: @white;
+	.nav>li>a>i{
+		display: none;
+	}
+	.nav>li:hover>a{
+		background: #60f;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;
+		color: #fff;
+		font-size: 11px;
+		//padding: 10px 15px;
+		text-decoration: none;
 		i{
+			display: block;
 			color: @white;
 		}
 	}
-	.fa-heart{
+	.nav>li>a{
+		display: block;
+		-webkit-transition: all 100ms ease-in-out;
+		-moz-transition: all 100ms ease-in-out;
+		-o-transition: all 100ms ease-in-out;
+		-ms-transition: all 100ms ease-in-out;
+		transition: all 100ms ease-in-out;
+	}
+	.fa-star{
 		color: @pink;
 	}
 	.fa-user{
