@@ -71,18 +71,55 @@ header{
 		outline: none;
 		border: none;
 		border-radius: 3px;
-		font-size: 12px;
-		color: @grayDark;
+		font: 20px/15px "ars-maquette-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #60f;
+		height: 40px;
+		background: #fff;
+		border: 1px solid #60f;
 	}
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-	background-image: -webkit-gradient(linear,left 0,left 100%,from(@blue),to(darken(@blue, 10%)));
-	background-image: -moz-linear-gradient(top,@blue 0,darken(@blue, 10%) 100%);
-	background-image: linear-gradient(to bottom,@blue 0,darken(@blue, 10%) 100%);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffefefef',endColorstr='#ffc8c8c8',GradientType=0);
-	background-color: darken(@blue, 10%);
-	filter: none!important;
-	-webkit-font-smoothing: antialiased;
+	.clicked{
+		background: #60f !important;
+		-moz-border-radius: 10px !important;
+		border-radius: 10px !important;
+		-webkit-border-radius: 10px !important;
+		color: #fff !important;
+		font-size: 12px !important;
+		::-webkit-input-placeholder {
+			color: @white;
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+			color: @white;  
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+			color: @white;  
+		}
+
+		:-ms-input-placeholder {  
+			color: @white;  
+		}
+		i{
+			display: block;
+			color: @white;
+		}
+	}
+	#searchBar{
+		display: block;
+		-webkit-transition: all 100ms ease-in-out;
+		-moz-transition: all 100ms ease-in-out;
+		-o-transition: all 100ms ease-in-out;
+		-ms-transition: all 100ms ease-in-out;
+		transition: all 100ms ease-in-out;
+	}
+	background: transparent;
+
+}
+.container-fluid{
+	padding: 7.5px;
+}
+#search{
+	width: 50%;
+	position: relative;
+	float: left;
 }

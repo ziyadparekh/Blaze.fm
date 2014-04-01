@@ -32,11 +32,23 @@ define(['app',
 				'keyup #searchBar':'filterOnEnter',
 				'click .leftmenu' : 'openLeftMenu',
 				'click #searchBar': 'clear',
+				'focusout #searchBar': 'unclick'
+			},
+			unclick: function(){
+				$("#searchBar").removeClass("clicked");
+				$("#searchBar").val("Search for songs or artists");
 			},
 			clear: function(){
-				$("#searchBar").val("");
 				$("#autobox").slideUp().hide();
 				$("#leftmenu").hide();
+				if($("#searchBar").val() == "Search for songs or artists"){
+					$("#searchBar").val("");
+					$("#searchBar").addClass("clicked");
+				}
+				else{
+					$("#searchBar").val("Search for songs or artists");
+					$("#searchBar").removeClass("clicked");
+				}
 			},
 			openLeftMenu: function(e){
 				if(app.likesView && app.likesView.leftmenu){
@@ -72,7 +84,10 @@ define(['app',
 				$("#leftmenu").show();
 			},
 			filterOnEnter: function(e){
-				if($("#searchBar").val().length == 0) $("#autobox").hide();
+				if($("#searchBar").val().length == 0){ 
+					$("#autobox").hide();
+					$("#searchBar").removeClass("clicked");
+				}
 				this.masterArray = {};
 				if(e.which == 13) alert();
 				else this.autocomplete();
