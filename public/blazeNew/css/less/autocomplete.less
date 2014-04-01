@@ -2,13 +2,13 @@
 	position: absolute;
 	width: 35.5%;
 	font-size: 11px;
-	top: 49px;
-	left: 13%;
 	border-radius: 3px;
 	display: none;
-	z-index: 200;
+	z-index: 201000000;
 	background: #e9eaed;
 	color: black;
+	max-width: 458px;
+	min-width: 458px;
 	#trackbox{
 		position: relative;
 		width: 100%;
@@ -71,6 +71,15 @@
 		padding-bottom: 3px;
 	}
 	.tracks:hover{
+		cursor: pointer;
+		color: @white;
+		background-color: @blue;
+
+		.fa-chevron-circle-right{
+			color: @white
+		}
+	}
+	.linkage{
 		cursor: pointer;
 		color: @white;
 		background-color: @blue;

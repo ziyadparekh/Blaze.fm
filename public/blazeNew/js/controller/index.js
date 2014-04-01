@@ -10,6 +10,7 @@ define([
 				console.log("loaded")
 			},
 			load_favorites: function(){
+				app.vent.trigger("load_page", "favorites");
 				if(app.headerView.leftmenu){
 					console.log(app.headerView.leftmenu);
 					app.headerView.leftmenu.close();
@@ -18,6 +19,7 @@ define([
 				app.center.show(app.likesView)
 			},
 			load_history: function(){
+				app.vent.trigger("load_page", "history");
 				if(app.headerView.leftmenu){
 					app.headerView.leftmenu.close();
 				}

@@ -101,7 +101,7 @@ define(['marionette',
 				if(model.get("id") == 0 || $(e.currentTarget).hasClass("active"))
 					return;
 				$(e.currentTarget).addClass("yellow");
-				app.favorites.add(model, {at:0});
+				app.favorites.push(model);
 				model.save();
 			}
 

@@ -89,6 +89,30 @@ define(['app',
 					$("#searchBar").removeClass("clicked");
 				}
 				this.masterArray = {};
+				// if(e.keyCode == 38){
+				// 	if(document.getElementsByClassName("linkage").length == 0){
+				// 		$(".tracks:last-child").addClass("linkage")
+				// 	}else if(document.getElementsByClassName("linkage").length == 1){
+				// 		var $item = $(".linkage")
+				// 		var index = $item.index(".tracks");
+				// 		console.log(index)
+				// 		this.$el.find(".tracks").removeClass("linkage");
+				// 		$(".tracks:nth-child("+(index)+")").addClass("linkage")
+				// 	}
+				// 	return
+				// }
+				if(e.which == 40){
+					if(document.getElementsByClassName("linkage").length == 0){
+						console.log(this.$el.find(".ziyad:first-child"));
+						$(".trackbox:first-child").addClass("linkage")
+					}else if(document.getElementsByClassName("linkage").length == 1){
+						var $item = $(".linkage")
+						var index = $item.index(".trackbox");
+						this.$el.find(".tracks").removeClass("linkage");
+						$(".trackbox:nth-child("+(index+2)+")").addClass("linkage")
+					}
+					return
+				}
 				if(e.which == 13) alert();
 				else this.autocomplete();
 			},

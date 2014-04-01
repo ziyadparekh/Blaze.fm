@@ -105,6 +105,7 @@ require(['app',
 		app.queue_collection = new QueueCollection();
 		app.favorites = new Favorites();
 		app.favorites.fetch();
+		app.favorites.models = app.favorites.models.length>0 ? app.favorites.models.reverse() : [];
 		app.history = new HistoryCollection();
 		app.history.fetch();
 		app.history.models = app.history.models.length>0 ? app.history.models.reverse() : [];
@@ -120,6 +121,10 @@ require(['app',
 
 		app.playerView = new Player({model: app.currentSong, collection: app.queue_collection});
 		app.player.show(app.playerView);
+
+		app.vent.on('load_page',function(page) {
+			app.leftView.active_tab(page);
+		});
 
 		Backbone.history.start({pushState: true});
 

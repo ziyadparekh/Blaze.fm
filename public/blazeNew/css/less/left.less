@@ -43,8 +43,8 @@
 		padding-right: 10px;
 	}
 	.nav{
-		margin-bottom: 43px;
-		margin-top: 48px;
+		margin-bottom: 55px;
+		margin-top: 58px;
 	}
 	.nav>li>a{
 		font: 20px/15px "ars-maquette-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -59,7 +59,7 @@
 		-moz-border-radius: 10px;
 		border-radius: 10px;
 		-webkit-border-radius: 10px;
-		color: #fff;
+		color: #fff !important;
 		font-size: 11px;
 		//padding: 10px 15px;
 		text-decoration: none;
@@ -75,6 +75,12 @@
 		-o-transition: all 100ms ease-in-out;
 		-ms-transition: all 100ms ease-in-out;
 		transition: all 100ms ease-in-out;
+	}
+	.active{
+		color: lighten(#60f, 15%)!important;
+	}
+	.nav>li.active{
+		border: none;
 	}
 	.fa-star{
 		color: @pink;
