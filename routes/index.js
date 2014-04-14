@@ -13,3 +13,8 @@
  	var url = 'http://localhost:4000';
  	res.render('popchat',{url:url});
  }
+ exports.rte = function(req, res){
+ 	var url = "http://localhost:3010";
+ 	res.render('helix',{url:url});
+
+ }

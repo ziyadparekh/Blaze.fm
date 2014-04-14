@@ -22,6 +22,7 @@ app.use(express.bodyParser());
 
 app.get('/', index.index);
 app.get('/blaze*', index.blaze);
+app.get('/rte', index.rte);
 
 app.post('/tracks', tracks.create);
 app.get('/tracks', tracks.list);

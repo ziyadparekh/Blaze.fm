@@ -1,14 +1,14 @@
-
 {
-	"name": "API",
-	"version": "2.0.3",
-	"private": true,
-	"dependencies": {
-		"express": 			"*",
-		"ejs": 				"*",
-		"mysql":            "*",
-		"underscore":       "*",
-		"async":            "*",
-		"moment":           "*"
-		}
-	}
+  "name": "API",
+  "version": "2.0.3",
+  "private": true,
+  "dependencies": {
+    "express": "*",
+    "ejs": "*",
+    "mysql": "*",
+    "underscore": "*",
+    "async": "*",
+    "moment": "*",
+    "marked": "~0.3.2"
+  }
+}

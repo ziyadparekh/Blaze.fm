@@ -1,0 +1,121 @@
+#leftmenuwrap{
+	position: relative;
+	float: left;
+	width: 23%;
+	background-color: @white;
+	margin-right: 7.5px;
+}
+	// #left{
+	// 	position: absolute;
+	// 	top: 38px;
+	// 	height: 77%;
+	// 	min-width: 213px;
+	// 	#current_song{
+	// 		position: absolute;
+	// 		bottom: 0;
+	// 	}
+	// 	.thumbnail{
+	// 		margin-bottom: 0;
+	// 	}
+	img{
+		width: 207px;
+	}
+	h4{
+		color: @blaze;
+	}
+
+	.thumbnail{
+		background: none !important;
+		border: none;
+	}
+	.thumbnail .caption {
+		padding: 9px 0px;
+		color: @blaze;
+	}
+	// #wrap{
+	// 	position: absolute;
+	// 	left: 329px;
+	// 	margin-top: -10px;
+	// 	height: 77%;
+	// 	width: 56% !important;
+	// }
+	#footer{
+		padding-right: 10px;
+	}
+	.nav{
+		margin-bottom: 55px;
+		margin-top: 58px;
+	}
+	.nav>li>a{
+		font: 20px/15px "ars-maquette-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #60f;
+		text-transform: uppercase;
+	}
+	.nav>li>a>i{
+		display: none;
+	}
+	.nav>li:hover>a{
+		background: #60f;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;
+		color: #fff !important;
+		font-size: 11px;
+		//padding: 10px 15px;
+		text-decoration: none;
+		i{
+			display: block;
+			color: @white;
+		}
+	}
+	.nav>li>a{
+		display: block;
+		-webkit-transition: all 100ms ease-in-out;
+		-moz-transition: all 100ms ease-in-out;
+		-o-transition: all 100ms ease-in-out;
+		-ms-transition: all 100ms ease-in-out;
+		transition: all 100ms ease-in-out;
+	}
+	.active{
+		color: lighten(#60f, 15%)!important;
+	}
+	.nav>li.active{
+		border: none;
+	}
+	.fa-star{
+		color: @pink;
+	}
+	.fa-user{
+		color: @yellow;
+	}
+	.fa-clock-o{
+		color: @red;
+	}
+	.fa-music{
+		color: @purple;
+	}
+
+	.audio-wrap{
+		position: relative;
+		height: 34px;
+		float: left;
+		#audio-holder{
+			position: relative;
+			float: right;
+			top: 0 !important;
+			right: 0px;
+			background-color: #000;
+
+			i{
+				position: relative;
+				float: left;
+				font-size: 24px;
+				margin: 5px 10px;
+				color: #888888;
+			}
+			#audio-test{
+				position: relative;
+				float: left;
+			}
+		}
+	}
