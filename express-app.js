@@ -21,6 +21,7 @@ app.use(function(req, res, next) {
 //routes
 var index = require('./routes/index')
 	,users = require('./routes/api/users')
+	,collections = require('./routes/api/collections')
     ,bodyParser = require('body-parser');
 
 //static and port
@@ -94,7 +95,7 @@ require('./modules/auth');
 app.get('/status', index.status);
 //paths for html
 app.get('/', ensureLoggedIn('/login'), index.rte);
-app.get('/rte', ensureLoggedIn('/login'), index.rte);
+app.get('/rte/*', ensureLoggedIn('/login'), index.rte);
 app.get('/login', index.login);
 //logins
 app.get('/auth/facebook', passport.authenticate('facebook'));
@@ -104,6 +105,12 @@ app.get('/logout', index.logout);
 
 //users
 app.get('/'+version+'/users/:id',ensureLoggedIn('/login'), users.show);
+
+//collections
+app.post('/'+version+'/create', ensureLoggedIn('/login'), collections.create);
+app.get('/'+version+'/collection/available', ensureLoggedIn('/login'), collections.titleAvailable);
+app.get('/'+version+'/collection/search', ensureLoggedIn('/login'), collections.search);
+app.get('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.find);
 //default
 app.get('*', index.notfound);
 

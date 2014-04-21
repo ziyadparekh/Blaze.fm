@@ -1,0 +1,57 @@
+#error{
+	display: none;
+	position: fixed;
+	overflow: auto;
+	text-align: center;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 900;
+	background-color: rgba(255,255,255,0.97);
+}
+#error:before{
+	content: '';
+	// display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+.error-close{
+	border: 0;
+	background: rgba(0,0,0,0);
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding-right: 5px;
+	color: #b3b3b1;
+}
+.error-dialog{
+	display: inline-block;
+	vertical-align: middle;
+	outline: 0;
+	overflow: hidden;
+	max-width: 580px;
+	-webkit-transform-origin: bottom center;
+	-moz-transform-origin: bottom center;
+	-o-transform-origin: bottom center;
+	transform-origin: bottom center;
+	-webkit-animation: scale-fade 300ms forwards cubic-bezier(0.8,0.02,0.45,0.91);
+	-moz-animation: scale-fade 300ms forwards cubic-bezier(0.8,0.02,0.45,0.91);
+	-ms-animation: scale-fade 300ms forwards cubic-bezier(0.8,0.02,0.45,0.91);
+	-o-animation: scale-fade 300ms forwards cubic-bezier(0.8,0.02,0.45,0.91);
+	animation: scale-fade 300ms forwards cubic-bezier(0.8,0.02,0.45,0.91);
+	padding: 40px;
+}
+.error-title{
+	color: #333332;
+	font-size: 32px;
+	line-height: 1.1;
+	margin-bottom: 6px;
+}
+.error-message{
+	color: #666665;
+	line-height: 1.4;
+	margin-bottom: 30px;
+	font-size: 23px;
+}

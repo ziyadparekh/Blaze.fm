@@ -56,8 +56,9 @@ require(['app',
 	'backbone.wreqr',
 	'router/index',
 	'controller/index',
+	'models/me',
 	'bootstrap'
-	],function(app,Backbone,Wreqr,Router,Controller){
+	],function(app,Backbone,Wreqr,Router,Controller, Me){
 		"use strict";
 
 		$('body').on('click', 'a', function(e){
@@ -114,6 +115,8 @@ require(['app',
 		app.vent.on('load_page',function(page) {
 		});
 
+		app.me = new Me(user);
+		
 		Backbone.history.start({pushState: true});
 
 	});

@@ -7,14 +7,16 @@
 	border: none;
 }
 .btn-primary{
+	border: 1px solid @blue;
+	border-radius: 0px;
+	background: transparent;
 	color: @blue;
-	background-color: transparent;
-	border: none;
 }
 .btn-success{
+	border: 1px solid @green;
+	border-radius: 0px;
+	background: transparent;
 	color: @green;
-	background-color: transparent;
-	border: none;
 }
 .btn-danger{
 	color: @red;
@@ -29,20 +31,72 @@
 	border: 0px;
 }
 .btn-primary:hover{
+	background: @blue;
 	color: @white;
-	background-color: @blue;
-	box-shadow: 1px 2px 1px darken(@blue, 10%);
-	border: 0px;
 }
 .btn-success:hover{
+	background: @green;
 	color: @white;
-	background-color: @green;
-	box-shadow: 1px 2px 1px darken(@green, 10%);
-	border: 0px;
 }
 .btn-danger:hover{
 	color: @white;
 	background-color: @red;
 	box-shadow: 1px 2px 1px darken(@red, 10%);
 	border: 0px;
+}
+.btn-facebook{
+	border: 1px solid @facebook;
+	border-radius: 0px;
+	background: transparent;
+	color: @facebook;
+}
+.btn-facebook:hover{
+	background: @facebook;
+	color: @white;
+}
+.btn-facebook:focus, .btn-facebook:active{
+	background-color: @facebook;
+	color: @white;
+	outline: 0;
+}
+.btn-primary:focus, .btn-primary:active{
+	background-color: @blue;
+	color: @white;
+	outline: 0;
+}
+.btn-success:focus, .btn-success:active{
+	background-color: @green;
+	color: @white;
+	outline: 0;
+}
+.btn{
+	display: block;
+	-webkit-transition: all 100ms ease-in-out;
+	-moz-transition: all 100ms ease-in-out;
+	-o-transition: all 100ms ease-in-out;
+	-ms-transition: all 100ms ease-in-out;
+	transition: all 100ms ease-in-out;
+}
+.btn-picture{
+	margin-right: auto;
+	margin-left: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+	font-size: 64px;
+	outline: none;
+}
+.btn-picture:active{
+	outline: none;
+	box-shadow: 0px;
+	-webkit-box-shadow: 0px;
+}
+.btn-picture:focus{
+	outline: none;
+	box-shadow: 0px;
+	-webkit-box-shadow: 0px;
+}
+.btn-collection{
+	margin-right: auto;
+	margin-left: auto;
 }
