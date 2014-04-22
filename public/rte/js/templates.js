@@ -9,6 +9,7 @@ define(function(require){
 		collection    : require('text!templates/collection.html'),
 		collections   : require('text!templates/collections.html'),
 		collectionItem: require('text!templates/collectionItem.html'),
+		editcollection: require('text!templates/editcollection.html'),
 		errorBox   	  : require('text!templates/error.html'),
 
 	};

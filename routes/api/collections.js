@@ -24,6 +24,8 @@ exports.create = function(req, res){
 		db.collections.render(collection.insertId, req, function(err, result){
 			if(err)
 				console.log(err)
+			if(!result)
+				return res.send(404,{error: {message: 'No Collection Found'}})
 			db.users.render(result.curator, req, function(err, user){
 				if(err)
 					console.log(err)
@@ -49,6 +51,8 @@ exports.find = function(req, res){
 	db.collections.render(req.params.id, req, function(err, result){
 		if(err)
 			console.log(err)
+		if(!result)
+			return res.send(404,{error: {message: 'No Collection Found'}})
 		db.users.render(result.curator, req, function(err, user){
 			if(err)
 				console.log(err)
@@ -57,6 +61,22 @@ exports.find = function(req, res){
 
 			res.send({ status: 200, response: result, error: null });
 		})
+	})
+}
+exports.update = function(req, res){
+	if(!req.body || !req.body.id)
+		return res.send({meta: 200, response: false, error: null})
+	if(!(req.body.user.id == req.user.id))
+		return res.send({meta: 300, response: "You are not authorized to comlpete this action", error: null})
+
+	delete req.body.button;
+	delete req.body.user;
+	delete req.body.mid;
+
+	db.collections.update(req.body, function(err, result){
+		if(err)
+			console.log(err)
+		res.send({meta: 200, response: result, error: null})
 	})
 }
 

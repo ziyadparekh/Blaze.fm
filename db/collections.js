@@ -66,3 +66,13 @@
              return done(null, null);
      }, next);
  };
+exports.update = function(body, done, next){
+    connection.query('UPDATE collections SET ? WHERE id = ?', [body, body.id], function(err, result){
+        if(err)
+            return done(err)
+        else{
+            console.log(result)
+            return done(null, "update successful")
+        }
+    })
+}

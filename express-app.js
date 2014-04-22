@@ -111,6 +111,7 @@ app.post('/'+version+'/create', ensureLoggedIn('/login'), collections.create);
 app.get('/'+version+'/collection/available', ensureLoggedIn('/login'), collections.titleAvailable);
 app.get('/'+version+'/collection/search', ensureLoggedIn('/login'), collections.search);
 app.get('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.find);
+app.put('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.update);
 //default
 app.get('*', index.notfound);
 

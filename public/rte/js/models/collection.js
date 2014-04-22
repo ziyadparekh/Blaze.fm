@@ -1,6 +1,6 @@
-define(['backbone'],
+define(['backbone','app'],
 
-	function(Backbone){
+	function(Backbone, app){
 
 		return Backbone.Model.extend({
 			initialize: function(options){
@@ -12,6 +12,10 @@ define(['backbone'],
 			},
 			parse:function(data){
 				var data = data.response;
+				if(data.user.id == app.me.get("id"))
+					data.button = "<a href='/rte/edit/collection/"+data.id+"' id='edit' title='Edit collection' class='btn btn-light'>Edit</a>";
+				else
+					data.button = "";
 				return data;
 			}
 		});

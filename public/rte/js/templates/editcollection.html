@@ -1,0 +1,18 @@
+<div class='bg-img'>
+	<div class='img-target' style='background-color:#191918;'></div>
+</div>
+<div class='col-xs-18 container'>
+	<button class='btn btn-picture'><i class="fa fa-picture-o"></i></button>
+	<input type='text' value='<%=image%>'class='hidden input-text input-image' name='collection-image' id='collection-image' placeholder='Enter url' disabled='true'>
+	<textarea class='collection-title input-text col-xs-18' id='collection-name' maxlength="80" placeholder='Name your collection'><%=name%></textarea>
+	<textarea class='collection-subtitle input-text col-xs-16' id='collection-description' maxlength="120" placeholder='Describe your collection'><%=description%></textarea>
+	<br>
+	<ul class='nav nav-justified col-xs-10'>
+		<li>
+			<button id='save-collection' class='btn btn-success btn-collection'>Save</button>
+		</li>
+		<li>
+			<button data-href='/rte/collections' id='cancel-collection' class='btn btn-danger btn-collection'>Cancel</button>
+		</li>
+	</ul>
+</div>

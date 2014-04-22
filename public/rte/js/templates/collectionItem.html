@@ -1,9 +1,12 @@
-<li>
-	<a href='rte/<%=id%>' class='collection-item' style='background-image: url(<%=image%>);'>
-		<div class="align-block">
-			<div class="collection-item-title">
-				<%= name %>
+<%_.each(data, function(item, i){ %>
+	<li class='collection-block'>
+		<%console.log(item)%>
+		<a href='rte/collection/<%=item.attributes.id%>' class='collection-item align-bottom' style='background-image: url(<%=item.attributes.image%>);'>
+			<div class="align-block">
+				<div class="collection-item-title">
+					<%= item.attributes.name %>
+				</div>
 			</div>
-		</div>
-	</a>
-</li>
+		</a>
+	</li>
+<%})%>

@@ -13,7 +13,7 @@ define(['marionette',
 				console.log(this.collection)
 			},
 			template: templates.collections,
-			collectionItemTemplate: templates.collectionItem,
+			collectionItemTemplate: _.template(templates.collectionItem),
 			events: {
 				'keyup #collection-search':'load_autocomplete'
 			},
@@ -26,9 +26,15 @@ define(['marionette',
 					url: endpoint+'collection/search?title='+val,
 					type: 'get',
 					success: function(result){
-						console.log(result);
+						console.log(result)
+						that.renderAuto(result.models)
 					}
 				})
+			},
+			renderAuto: function(data){
+				console.log(data)
+				$("#collection-list").html("");
+				$("#collection-list").append(this.collectionItemTemplate({data: data}));
 			},
 			reload: function(){
 

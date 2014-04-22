@@ -19,10 +19,10 @@
 	color: @green;
 }
 .btn-danger{
+	border: 1px solid @red;
+	border-radius: 0px;
+	background: transparent;
 	color: @red;
-	background-color: transparent;
-	border: none;
-	padding: 0px 5px;
 }
 .btn-default:hover{
 	color: @white;
@@ -39,10 +39,8 @@
 	color: @white;
 }
 .btn-danger:hover{
+	background: @red;
 	color: @white;
-	background-color: @red;
-	box-shadow: 1px 2px 1px darken(@red, 10%);
-	border: 0px;
 }
 .btn-facebook{
 	border: 1px solid @facebook;
@@ -85,6 +83,8 @@
 	background: transparent;
 	font-size: 64px;
 	outline: none;
+	height: inherit;
+	border: none;
 }
 .btn-picture:active{
 	outline: none;
@@ -99,4 +99,12 @@
 .btn-collection{
 	margin-right: auto;
 	margin-left: auto;
+}
+.btn-set{
+	margin-right: 8px;
+	vertical-align: middle;
+}
+.btn-light{
+	border-color: rgba(255,255,255,0.5);
+	background: rgba(0,0,0,0);
 }

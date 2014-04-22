@@ -11,6 +11,7 @@ define([
 			},
 			parse: function(data){
 				data = data.response;
+				
 				return data;
 			}
 		});

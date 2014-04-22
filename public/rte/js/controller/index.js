@@ -7,7 +7,8 @@ define([
 	'views/create',
 	'views/collection',
 	'views/collections',
-	], function (app, Editor, User, CollectionModel, UserView, Create, Collection, Collections) {
+	'views/collectionEdit',
+	], function (app, Editor, User, CollectionModel, UserView, Create, Collection, Collections, CollectionEdit) {
 		"use strict";
 
 		return {
@@ -39,6 +40,13 @@ define([
 			},
 			load_collections: function(){
 				app.center.show(new Collections());
+			},
+			load_edit_collection: function(id){
+				var model = new CollectionModel({mid: id});
+				model.fetch().done(function(){
+					console.log(model);
+					app.center.show(new CollectionEdit({model : model}));
+				});
 			}
 
 		};
