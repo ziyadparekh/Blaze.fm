@@ -76,3 +76,75 @@ exports.update = function(body, done, next){
         }
     })
 }
+exports.follow = function(post, req, done, next){
+    connection.query('INSERT INTO follow SET ?', post, function(err, rows){
+        if(err)
+            console.log(err)
+        else
+            return done(null, rows)
+    }, next);
+}
+exports.unfollow = function(post, req, done, next){
+    console.log(post.cid)
+    connection.query('DELETE FROM follow WHERE cid = ? AND uid = ?', [post.cid, post.uid], function(err, rows){
+        if(err)
+            console.log(err)
+        else
+            return done(null, rows)
+    }, next)
+}
+exports.doIfollow = function(post, req, done, next){
+    connection.query('SELECT * FROM follow WHERE cid = ? AND uid = ?', [post.cid, post.uid], function(err, result){
+        if(err)
+            console.log(err)
+        if(!result || !result[0]){
+            return done(null, [])
+        }
+        else
+            return done(null, result)
+    }, next)
+}
+exports.fetchFollowed = function(req, done, next){
+    connection.query('SELECT * FROM collections LEFT JOIN follow ON collections.id = follow.cid WHERE follow.uid = ?', req.user.id, function(err, result){
+        console.log(result)
+        if(err)
+            console.log(err)
+        if(!result || !result[0])
+            return done(null, [])
+        return done(null, result)
+    })
+}
+exports.fast_render = function(collections, req, done, next) {
+    async.mapLimit(collections, 5, function(collection, callback){
+        if (!collection || !collection.id || isNaN(collection.id) || collection.id == 0) {
+            return callback(null, []);
+        } else {
+            render(collection, req, callback, next);
+        }
+    }, done);
+};
+
+var render = function(collection, req, done, next){
+    delete collection.uid;
+    collection.id = collection.cid;
+    db.users.render(collection.curator, req, function(err, user){
+        if(err)
+            console.log(err)
+        collection.user = user;
+        delete collection.curator;
+
+        var post = {
+            'uid':user.id,
+            'cid': collection.cid
+        }
+        db.collections.doIfollow(post, req, function(err, rows){
+            if(rows.length == 0){
+                collection.following = false;
+            }else{
+                collection.following = true;
+            }
+            delete collection.cid;
+            return done(null, collection)
+        }, next)
+    })
+}

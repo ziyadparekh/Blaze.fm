@@ -1,11 +1,29 @@
-<div class='bg-img'>
-	<div class='img-target' style='background-color:#191918;'></div>
-</div>
-<div class='col-xs-18 container'>
-	<button class='btn btn-picture'><i class="fa fa-picture-o"></i></button>
-	<input type='text' class='hidden input-text input-image' name='collection-image' id='collection-image' placeholder='Enter url' disabled='true'>
-	<textarea class='collection-title input-text col-xs-18' id='collection-name' maxlength="80" placeholder='Name your collection'></textarea>
-	<textarea class='collection-subtitle input-text col-xs-16' id='collection-description' maxlength="120" placeholder='Describe your collection'></textarea>
-	<br>
-	<button id='create-collection' class='btn btn-primary btn-collection'>Create Collection</button>
+<div class='screen-content surface-content'>
+	<div class='image-full-bleed'>
+		<div class='img-target' style='background-color:#191918;'></div>
+	</div>
+	<div class=''>
+		<div class="metabar metabar-light metabar-top ">
+			<div class="metabar-block pull-left">
+			</div>
+			<div class="metabar-block pull-right">
+				<div class="btn-set" style='width: 200px;'>
+					<button data-href='/rte/collections' id='cancel-create' class='btn btn-light btn-cancel'>Cancel</button>
+					<button id='create-collection' class='btn btn-primary btn-collection'>Create</button>
+				</div>
+			</div>
+		</div>
+		<header class="hero hero-collection">
+			<div class="edit-item layout-single-column layout-foreground">
+				<div class="align-block">
+					<div class='cover-picker-controls'>
+						<button class='btn btn-picture'><i class="fa fa-picture-o"></i></button>
+						<input type='text' class='hidden input-text input-image' name='collection-image' id='collection-image' placeholder='Enter url' disabled='true'>
+					</div>
+					<textarea class='hero-title input-text col-xs-18' id='collection-name' maxlength="80" placeholder='Name your collection'></textarea>
+					<textarea class='hero-description input-text col-xs-16' id='collection-description' maxlength="120" placeholder='Describe your collection'></textarea>
+				</div>
+			</div>
+		</header>
+	</div>
 </div>

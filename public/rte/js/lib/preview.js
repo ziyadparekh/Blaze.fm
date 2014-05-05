@@ -12,8 +12,8 @@ var Preview = {
   //  Get the preview and buffer DIV's
   //
   Init: function (real, temp) {
-    this.preview = document.getElementById(real);
-    this.buffer = document.getElementById(temp);
+    this.preview = document.getElementById("marked-mathjax-preview");
+    this.buffer = document.getElementById("marked-mathjax-preview-buffer");
   },
 
   //
@@ -24,13 +24,11 @@ var Preview = {
   SwapBuffers: function () {
     console.log(this.buffer)
     var buffer = this.preview, preview = this.buffer;
-    this.preview = preview; this.buffer = buffer;
-    // buffer.style.display = "none";
-    // buffer.style.position = "absolute";
+    this.preview = buffer; this.buffer = preview;
+    buffer.style.display = "none";
+    buffer.style.position = "absolute";
     preview.style.position = ""; 
     preview.style.display = "";
-    // console.log(this.preview)
-    // console.log(this.buffer)
   },
 
   //
@@ -58,7 +56,8 @@ var Preview = {
     if (this.mjRunning) return;
     var text = document.getElementById("marked-mathjax-input").innerHTML;
     if (text === this.oldtext) return;
-    text = this.Escape(text);                       //Escape tags before doing stuff
+    //text = this.Escape(text);                       //Escape tags before doing stuff
+    console.log(text);
     this.buffer.innerHTML = this.oldtext = text;
     this.mjRunning = true;
     MathJax.Hub.Queue(
@@ -75,9 +74,10 @@ var Preview = {
   PreviewDone: function () {
     this.mjRunning = false;
     text = this.buffer.innerHTML;
-    this.buffer.innerHTML = marked(text);
+    //this.buffer.innerHTML = marked(text);
+    this.buffer.innerHTML = text;
     //console.log(this.buffer)
-    //this.SwapBuffers();
+    this.SwapBuffers();
   },
 
   Escape: function (html, encode) {

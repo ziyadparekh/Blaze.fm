@@ -21,7 +21,7 @@ define(['marionette',
 				'click .btn-picture':'toggle_input',
 				'click #save-collection': "validate_collection",
 				'click #cancel-collection': "reroute",
-				'keyup .collection-title': 'validate_title'
+				'keyup #collection-name': 'validate_title'
 			},
 			onRender: function(){
 				
@@ -39,14 +39,14 @@ define(['marionette',
 			validate_collection: function(e){
 				var imgRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
 				//$(e.currentTarget).prop("disabled", true);
-				if($(".collection-title").val().length == 0){
+				if($("#collection-name").val().length == 0){
 					app.errorRegion.show(new ErrorView({error: "Enter a collection name"}));
 					return;
-				}else if($(".collection-title").val().length < 4){
+				}else if($("#collection-name").val().length < 4){
 					app.errorRegion.show(new ErrorView({error: "Collection name is too short"}));
 					return;
 				}
-				else if($(".collection-subtitle").val().length < 10){
+				else if($("#collection-description").val().length < 10){
 					app.errorRegion.show(new ErrorView({error: "Enter a description for your collection"}));
 					return;
 				}else if($("#collection-image").val().length == 0){
@@ -61,11 +61,11 @@ define(['marionette',
 			create_collection: function(e){
 				var that = this;
 				this.model.set({
-					name: app.strip($(".collection-title").val()),
-					description: app.strip($(".collection-subtitle").val()),
+					name: app.strip($("#collection-name").val()),
+					description: app.strip($("#collection-description").val()),
 					curator: app.me.get("id"),
 					image: $("#collection-image").val(),
-					url: app.strip($(".collection-title").val().split(" ").join("-").toLowerCase()) 
+					url: app.strip($("#collection-name").val().split(" ").join("-").toLowerCase()) 
 				})
 			},
 			syncModel: function(){

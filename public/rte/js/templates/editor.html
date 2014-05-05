@@ -1,21 +1,36 @@
-<div class='col-xs-24'>
-	<header class="post-header notes-header-source">
-		<h1 class="post-title title" role="textbox" contenteditable="true" data-length="0" data-max-length="100"></h1>
-		<h2 class="post-subtitle subtitle" contenteditable="true" data-default-value="Subtitle"></h2>
-	</header>
-	<div class='editable preview' id="marked-mathjax-input"
-	name="comment"
-	"autofocus">
-
+<div class='screen-content surface-content'>
+	<div class='layout-fill-height'>
+		<div class="metabar metabar-top ">
+			<div class="metabar-block pull-left">
+			</div>
+			<div class="metabar-block pull-right">
+				<div class='btn-set'style='width:400px;'>
+					<ul class='nav nav-justified'>
+						<li>
+							<button data-href='/rte/collections' id='cancel-post' class='btn'>Cancel</button>
+						</li>
+						<li>
+							<button id='save-post' class='btn following btn-success'>Save</button>
+						</li>
+						<li>
+							<button id='preview-post' class='btn'>Preview</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class='col-xs-16 post-wrap'>
+			<header class="post-header notes-header-source">
+				<h1 id='post-title' class="post-title title" role="textbox" contenteditable="true" data-length="0" data-max-length="100"></h1>
+				<h2 id='post-subtitle' class="post-subtitle subtitle" contenteditable="true" data-default-value="Subtitle"></h2>
+			</header>
+			<div class='editable preview' id="marked-mathjax-input" name="comment" "autofocus"></div>
+		</div>
+		<div class='col-xs-8 post-preview'>
+			<h1 id='title-preview' class="post-title post-title-preview"></h1>
+			<h2 id ='subtitle-preview' class="post-subtitle post-subtitle-preview"></h2>
+			<div class="preview" id="marked-mathjax-preview"></div>
+			<div class="preview" id="marked-mathjax-preview-buffer" style="display:none;position:absolute;top:0; left: 0"></div>
+		</div>
+	</div>
 </div>
-
-<!-- <div class="hint">Use 
-  <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">$\LaTeX$</a>
-  to type formulæ 
-  and <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown</a> to format text.
-</div> -->
-</div>
-<!-- <div class='col-xs-12'>
-  <div class="preview" id="marked-mathjax-preview"></div>
-  <div class="preview" id="marked-mathjax-preview-buffer" style="display:none;position:absolute;top:0; left: 0"></div>
-</div> -->

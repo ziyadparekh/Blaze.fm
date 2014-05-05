@@ -1,0 +1,54 @@
+<div class='screen-content surface-content'>
+	<div class='layout-fill-height'>
+		<div class="metabar metabar-top ">
+			<div class="metabar-block pull-left">
+			</div>
+			<div class="metabar-block pull-right">
+				<div class='btn-set'style='width:400px;'>
+					<ul class='nav nav-justified'>
+						<li>
+							<%=button%>
+						</li>
+						<li>
+							<button data-id='<%=id%>' id='bookmark-post' class='btn following btn-success'>Bookmark</button>
+						</li>
+						<li>
+							<button data-id='<%=id%>' id='add-post' class='btn'>Add to collection</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class='col-xs-16 post-wrap'>
+			<header class="post-header notes-header-source">
+				<h1 id='post-title' class="post-title title"><%=title%></h1>
+				<h2 id='post-subtitle' class="post-subtitle subtitle"><%=abstract%></h2>
+			</header>
+			<div class='preview post-body' id="marked-mathjax-input" name="comment" "autofocus"><%=post%></div>
+			<div class='post-credits col-xs-24'>
+				<h4 class="cards-heading">Written by</h4>
+				<ul class="cards">
+					<li class="card card-user">
+						<div class="card-image">
+							<a href="/rte/user/<%=user.id%>" title="Go to the profile of <%=user.name%>">
+							<img src="<%=user.image%>" class="card-avatar" title="<%=user.name%>">
+						</a>
+					</div>
+					<div class="card-content">
+						<h3 class="card-name">
+							<a href="/rte/user/<%=user.id%>" title="Go to the profile of <%=user.name%>" class="link link-primary"><%=user.name%></a>
+						</h3>
+						<div class="card-additional">
+							<div class="card-description-additional card-published">
+								<span>Published</span> <span><time class="post-date"><%=datePosted%></time></span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class='col-xs-8'>
+			<div class="preview" id="marked-mathjax-preview-buffer" style="display:none;position:absolute;top:0; left: 0"></div>
+		</div>
+	</div>
+</div>

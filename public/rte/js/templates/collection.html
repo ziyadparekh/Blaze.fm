@@ -1,24 +1,39 @@
-<div class='bg-img' data-img-url="<%= image %>">
-	<div class='img-target' style='background-image: url("<%= image %>")'></div>
-</div>
-<div class="metabar metabar-top col-xs-24">
-	<div class="metabar-block pull-left">
-		<div class="metabar-text">
-			<span class="collection-editor-label">Collection edited</span> by 
-			<a href="/<%=user.id%>"><%=user.name %></a>
+<div class='screen-content surface-content'>
+	<div class='image-full-bleed' data-img-url="<%= image %>">
+		<div class='img-target' style='background-image: url("<%= image %>")'></div>
+	</div>
+	<div class='layout-fill-height'>
+		<div class="metabar metabar-light metabar-top ">
+			<div class="metabar-block pull-left">
+				<div class="metabar-text collection-editor" data-shorthand="Edited">
+					<span class="collection-editor-label">Collection edited</span> by <a href="rte/user/<%=user.id%>"><%=user.name %></a>
+				</div>
+			</div>
+			<div class="metabar-block pull-right">
+				<div class="btn-set">
+					<%=button%>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class="metabar-block pull-right col-xs-10">
+		<header class="hero hero-collection">
+			<div class="align-middle layout-single-column layout-foreground layout-fill-height">
+				<div class="align-block">
+					<h1 class="hero-title"><%=name %></h1>
+					<p class="hero-description"><%=description%></p>
+					<div class="hero-actions btn-set">
+						<button id="<%= id %>" class="btn btn-lg btn-follow btn-toggle btn-success btn-light <%if(following){%>following<%}else{%>follow<%}%>">
+							<%if(following){%>
+							<span class="btn-label follow-label">Following</span>
+							<%}else{%>
+							<span class="btn-label follow-label">Follow</span>
+							<%}%>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
 	</div>
 </div>
-<header class='title-header col-xs-18'>
-	<div class='col-xs-24 base-block'>
-		<div class='header col-xs-23'>
-			<h1 class=""><%= name %></h1>
-			<p class=""><%= description %></p>
-		</div>
-	</div>
-	<div class="btn-set">
-		<%=button%>
-	</div>
-</header>
+
+
+

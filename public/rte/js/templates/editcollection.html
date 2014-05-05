@@ -1,18 +1,32 @@
-<div class='bg-img'>
-	<div class='img-target' style='background-color:#191918;'></div>
-</div>
-<div class='col-xs-18 container'>
-	<button class='btn btn-picture'><i class="fa fa-picture-o"></i></button>
-	<input type='text' value='<%=image%>'class='hidden input-text input-image' name='collection-image' id='collection-image' placeholder='Enter url' disabled='true'>
-	<textarea class='collection-title input-text col-xs-18' id='collection-name' maxlength="80" placeholder='Name your collection'><%=name%></textarea>
-	<textarea class='collection-subtitle input-text col-xs-16' id='collection-description' maxlength="120" placeholder='Describe your collection'><%=description%></textarea>
-	<br>
-	<ul class='nav nav-justified col-xs-10'>
-		<li>
-			<button id='save-collection' class='btn btn-success btn-collection'>Save</button>
-		</li>
-		<li>
-			<button data-href='/rte/collections' id='cancel-collection' class='btn btn-danger btn-collection'>Cancel</button>
-		</li>
-	</ul>
+<div class='screen-content surface-content'>
+	<div class='image-full-bleed' data-img-url="<%= image %>">
+		<div class='img-target' style='background-image: url("<%= image %>")'></div>
+	</div>
+	<div class=''>
+		<div class="metabar metabar-light metabar-top ">
+			<div class="metabar-block pull-left">
+				<div class="metabar-text collection-editor" data-shorthand="Edited">
+					<span class="collection-editor-label">Collection edited</span> by <a href="rte/user/<%=user.id%>"><%=user.name %></a>
+				</div>
+			</div>
+			<div class="metabar-block pull-right">
+				<div class="btn-set" style='width: 200px;'>
+					<button data-href='/rte/collections' id='cancel-collection' class='btn btn-light btn-cancel'>Cancel</button>
+					<button id='save-collection' class='btn btn-light following'>Save</button>
+				</div>
+			</div>
+		</div>
+		<header class="hero hero-collection">
+			<div class="edit-item layout-single-column layout-foreground layout-fill-height">
+				<div class="align-block">
+					<div class='cover-picker-controls'>
+						<button class='btn btn-picture'><i class="fa fa-picture-o"></i></button>
+						<input type='text' value='<%=image%>'class='hidden input-text input-image' name='collection-image' id='collection-image' placeholder='Enter url' disabled='true'>
+					</div>
+					<textarea class='hero-title input-text col-xs-18' id='collection-name' maxlength="80" placeholder='Name your collection'><%=name%></textarea>
+					<textarea class='hero-description input-text col-xs-16' id='collection-description' maxlength="120" placeholder='Describe your collection'><%=description%></textarea>
+				</div>
+			</div>
+		</header>
+	</div>
 </div>

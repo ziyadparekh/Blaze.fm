@@ -1,5 +1,51 @@
 .btn{
-	
+	display: inline-block;
+	position: relative;
+	height: 38px;
+	line-height: 37px;
+	padding: 0 16px;
+	border: 0;
+	outline: 0;
+	color: #8e8e8c;
+	background: rgba(0,0,0,0);
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border: 1px solid #dededc;
+	vertical-align: bottom;
+	white-space: nowrap;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+	letter-spacing: -0.02em;
+	font-weight: 400;
+	font-style: normal;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 999em;
+	-moz-border-radius: 999em;
+	border-radius: 999em;
+	-webkit-transition: .1s background-color,0.1s border-color,0.1s color;
+	-moz-transition: .1s background-color,0.1s border-color,0.1s color;
+	-ms-transition: .1s background-color,0.1s border-color,0.1s color;
+	-o-transition: .1s background-color,0.1s border-color,0.1s color;
+	transition: .1s background-color,0.1s border-color,0.1s color;
+}
+.btn:focus{
+	outline: none !important;
+}
+.btn-lg{
+	height: 44px;
+	line-height: 44px;
+	padding: 0 18px;
 }
 .btn-default{
 	color: @gray2;
@@ -8,15 +54,13 @@
 }
 .btn-primary{
 	border: 1px solid @blue;
-	border-radius: 0px;
 	background: transparent;
 	color: @blue;
 }
 .btn-success{
 	border: 1px solid @green;
-	border-radius: 0px;
 	background: transparent;
-	color: @green;
+	color: @white;
 }
 .btn-danger{
 	border: 1px solid @red;
@@ -35,6 +79,7 @@
 	color: @white;
 }
 .btn-success:hover{
+	border-color: @green !important;
 	background: @green;
 	color: @white;
 }
@@ -107,4 +152,26 @@
 .btn-light{
 	border-color: rgba(255,255,255,0.5);
 	background: rgba(0,0,0,0);
+	color: @white;
+}
+.btn-light:hover{
+	color: @white;
+	text-decoration: none;
+	border-color: @white;
+}
+.following{
+	background-color: @green;
+	border-color: @green;
+}
+.btn-sm, .btn-group-sm > .btn {
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 1000;
+}
+.btn-cancel{
+	float: left;
+	margin-right: 25px;
 }

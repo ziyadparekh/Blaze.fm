@@ -7,7 +7,8 @@ define(
         app = new marionette.Application();
         app.addRegions({
             header        : '#header',
-            center        : '#center',
+            center        : '#center-container',
+            collection    : '#collection-container',
             errorRegion   : '#error'
         });
         app.strip = function(str) {

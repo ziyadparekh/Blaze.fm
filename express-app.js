@@ -21,7 +21,8 @@ app.use(function(req, res, next) {
 //routes
 var index = require('./routes/index')
 	,users = require('./routes/api/users')
-	,collections = require('./routes/api/collections')
+    ,collections = require('./routes/api/collections')
+	,posts = require('./routes/api/posts')
     ,bodyParser = require('body-parser');
 
 //static and port
@@ -112,6 +113,14 @@ app.get('/'+version+'/collection/available', ensureLoggedIn('/login'), collectio
 app.get('/'+version+'/collection/search', ensureLoggedIn('/login'), collections.search);
 app.get('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.find);
 app.put('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.update);
+app.post('/'+version+'/collection/:id/follow', ensureLoggedIn('/login'), collections.follow);
+app.delete('/'+version+'/collection/:id/follow', ensureLoggedIn('/login'), collections.unfollow);
+app.get('/'+version+'/collections/followed', ensureLoggedIn('/login'), collections.followed);
+
+//posts
+app.post('/'+version+'/post/create', ensureLoggedIn('/login'), posts.create);
+app.get('/'+version+'/post/:id', ensureLoggedIn('/login'), posts.find);
+app.delete('/'+version+'/post/:id', ensureLoggedIn('/login'), posts.remove);
 //default
 app.get('*', index.notfound);
 

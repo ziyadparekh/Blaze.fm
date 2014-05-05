@@ -1,8 +1,8 @@
-.collection-block{
+.collection-bucket>.bucket-item {
 	display: inline-block;
 	height: 260px;
 	width: 31.33%;
-	margin-left: 3%;
+	margin-left: 2%;
 	margin-bottom: 3%;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -50,6 +50,10 @@
 .collection-item .align-block {
 	position: relative;
 	z-index: 200;
+	margin-top: 80%;
+}
+.edit-item .align-block{
+	margin-top: 25%;
 }
 .align-bottom .align-block {
 	display: inline-block;
@@ -68,4 +72,7 @@
 	overflow: hidden;
 	max-height: 154px;
 	word-break: break-word;
+}
+.collection-bucket>.bucket-item:nth-child(3n+1) {
+	margin-left: 0;
 }

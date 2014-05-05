@@ -1,12 +1,21 @@
 <%_.each(data, function(item, i){ %>
-	<li class='collection-block'>
-		<%console.log(item)%>
-		<a href='rte/collection/<%=item.attributes.id%>' class='collection-item align-bottom' style='background-image: url(<%=item.attributes.image%>);'>
-			<div class="align-block">
-				<div class="collection-item-title">
-					<%= item.attributes.name %>
-				</div>
+<li class='bucket-item'>
+	<%console.log(item)%>
+	<a href='/rte/collection/<%=item.attributes.id%>' class='collection-item' style='background-image: url(<%=item.attributes.image%>);'>
+		<div class="align-block">
+			<div class="collection-item-title">
+				<%= item.attributes.name %>
 			</div>
-		</a>
-	</li>
+			<div class="follow-wrapper">
+				<button id="<%= item.attributes.id %>" class="btn btn-sm btn-follow btn-toggle btn-success btn-light <%if(item.attributes.following){%>following<%}else{%>follow<%}%>">
+					<%if(item.attributes.following){%>
+					<span class="btn-label follow-label">Following</span>
+					<%}else{%>
+					<span class="btn-label follow-label">Follow</span>
+					<%}%>
+				</button>
+			</div>
+		</div>
+	</a>
+</li>
 <%})%>

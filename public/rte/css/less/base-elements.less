@@ -1,0 +1,62 @@
+.container{
+	background: #fff;
+	height: 100%;
+	-webkit-transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	-moz-transition: -moz-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	-o-transition: -o-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	transition: transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	width: 100%;
+	padding: 0px;
+}
+.surface{
+	top: 0;
+	height: 100%;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: padding-bottom .1s;
+	-moz-transition: padding-bottom .1s;
+	-ms-transition: padding-bottom .1s;
+	-o-transition: padding-bottom .1s;
+	transition: padding-bottom .1s;
+}
+.screen-content{
+	height: 100%;
+	outline: 0;
+	background-color: #fff;
+	position: absolute;
+	width: 100%;
+}
+.image-full-bleed{
+	background: #191918;
+}
+.image-full-bleed, .img-src{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.layout-fill-height{
+	height: 100%;
+}
+.layout-foreground {
+	position: relative;
+	z-index: 100;
+}
+.layout-single-column {
+	width: 640px;
+	margin: 0 auto;
+}
+.align-middle:before {
+	content: '';
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+.align-middle .align-block {
+	display: inline-block;
+	vertical-align: middle;
+}

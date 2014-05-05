@@ -21,20 +21,29 @@ exports.create = function(req, res){
 				error: 'collection could not be created.'
 			});
 		}
-		db.collections.render(collection.insertId, req, function(err, result){
+		var post = {
+			'uid': req.user.id,
+			'cid': collection.insertId
+		}
+		db.collections.follow(post, req, function(err, rows){
 			if(err)
-				console.log(err)
-			if(!result)
-				return res.send(404,{error: {message: 'No Collection Found'}})
-			db.users.render(result.curator, req, function(err, user){
+				console.log(err);
+			db.collections.render(collection.insertId, req, function(err, result){
 				if(err)
 					console.log(err)
-				result.user = user;
-				delete result.curator;
+				if(!result)
+					return res.send(404,{error: {message: 'No Collection Found'}})
+				db.users.render(result.curator, req, function(err, user){
+					if(err)
+						console.log(err)
+					result.user = user;
+					delete result.curator;
 
-				res.send({ status: 200, response: result, error: null });
+					res.send({ status: 200, response: result, error: null });
+				})
 			})
 		})
+		
 	}
 	db.collections.create(req.body, req, function(err, collection){
 		if(err)
@@ -58,8 +67,19 @@ exports.find = function(req, res){
 				console.log(err)
 			result.user = user;
 			delete result.curator;
-
-			res.send({ status: 200, response: result, error: null });
+			var post = {
+				'uid':user.id,
+				'cid': req.params.id
+			}
+			db.collections.doIfollow(post, req, function(err, rows){
+				if(rows.length == 0){
+					result.following = false;
+					res.send({ status: 200, response: result, error: null });
+				}else{
+					result.following = true;
+					res.send({ status: 200, response: result, error: null });
+				}
+			})
 		})
 	})
 }
@@ -72,6 +92,7 @@ exports.update = function(req, res){
 	delete req.body.button;
 	delete req.body.user;
 	delete req.body.mid;
+	delete req.body.following;
 
 	db.collections.update(req.body, function(err, result){
 		if(err)
@@ -100,10 +121,84 @@ exports.search = function(req, res){
 		return res.send({meta: 200, response: false, error: null});
 	}
 	db.collections.search(req.query.title, function(err, result) {
-		res.send({
-			meta: 200,
-			response: result,
-			error: null
-		});
+		if(err)
+			console.log(err)
+		if(!result)
+			return res.send(404,{error: {message: 'No Collection Found'}})
+		db.users.render(result.curator, req, function(err, user){
+			if(err)
+				console.log(err)
+			result.user = user;
+			delete result.curator;
+			var post = {
+				'uid':user.id,
+				'cid': result.id
+			}
+			db.collections.doIfollow(post, req, function(err, rows){
+				if(rows.length == 0){
+					result.following = false;
+					res.send({ status: 200, response: result, error: null });
+				}else{
+					result.following = true;
+					res.send({ status: 200, response: result, error: null });
+				}
+			})
+		})
 	});
+}
+
+exports.follow = function(req, res){
+	console.log(req.params);
+	if(!req.user)
+		return res.send({meta: 500, response: null, error: "please log in"})
+	if(!req.params || !req.params.id || isNaN(req.params.id)){
+		return res.send({meta: 500, response: null, error: "not a valid id"});
+	}
+	var post = {
+		'uid':req.user.id,
+		'cid': req.params.id
+	};
+	db.collections.doIfollow(post, req, function(err, result){
+		console.log(result)
+		if(result.length == 0){
+			db.collections.follow(post, req, function(err, result){
+				if(err)
+					console.log(err)
+				res.send({meta: 200, response: result, error: null})
+			})
+		}else{
+			console.log(result)
+			res.send({meta: 200, response:"you are already following this collection", error: null})
+		}
+	})
+}
+exports.unfollow = function(req, res){
+	if(!req.user)
+		return res.send({meta: 500, response: null, error: "please log in"})
+	if(!req.params || !req.params.id || isNaN(req.params.id)){
+		return res.send({meta: 500, response: null, error: "not a valid id"});
+	}
+	var post = {
+		'uid':req.user.id,
+		'cid': req.params.id
+	};
+	db.collections.unfollow(post, req, function(err, result){
+		if(err)
+			console.log(err)
+		res.send({meta: 200, response: result, error: null})
+	})
+}
+
+exports.followed = function(req, res){
+	if(!req.user)
+		return res.send({meta: 500, response: null, error: "please log in"})
+	var done = function(err, rows){
+	    if(err || !rows || rows.length == 0)
+	        return res.send({meta: 200, response: [], error: err});
+	    db.collections.fast_render(rows, req, function(err, echo){
+	        return res.send({meta: 200, response: echo, error: null});
+	    })
+	};
+	db.collections.fetchFollowed(req, done)
+
 }

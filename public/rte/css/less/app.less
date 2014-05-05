@@ -10,47 +10,39 @@
 @import "buttons.less";
 @import "images.less";
 @import "error.less";
+@import "base-elements.less";
+@import "metabar.less";
+@import "hero.less";
 @import "collections.less";
+@import "math-preview.less";
+@import "cards.less";
 @import "../font/Serif/cmun-serif.less";
 
 
 body{
-	background-color: @white;
-	font-size: 12px;
-	font-family: "Computer Modern Serif";
+	font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+	letter-spacing: -0.02em;
+	font-weight: 400;
+	font-style: normal;
+	color: #333332;
+	font-size: 18px;
+	line-height: 1.4;
+	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }
-header{
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-bottom: -5px;
+html, body, .container{
+	height: 100%;
 }
-.contentzone{
-	min-width: 1276px;
-}
-.container{
-	margin-bottom: 8px;
-}
-#center{
-	overflow-y: scroll;
-	overflow-x: hidden;
-	background: #fff;
-}
-footer{
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	//background: rgba(255,255,255,0.4);
-}
-h1{
-	padding-left: 11px;
-}
-.yellow{
-	color: @yellow !important;
-}
-::-webkit-scrollbar { 
-    display: none; 
-}
-// ::-webkit-scrollbar { 
-//     display: block; 
+// i{
+// 	color: @white;
 // }
+
+h4{
+	color: @purple;
+	font-size: 24px;
+	text-align: center;
+}
+.hidden{
+	display: none;
+	visibility: hidden;
+}

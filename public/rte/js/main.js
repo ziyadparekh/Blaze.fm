@@ -12,7 +12,7 @@ require.config({
 		localstorage: "../../bower_components/backbone.localstorage/backbone.localStorage-min",
 		text       : 'lib/text',
 		preview	   : 'lib/preview',
-		medium : 'lib/medium-editor.min',
+		medium : 'lib/medium-editor',
 	},
 	shim : {
 		"bootstrap": ["jquery"],
