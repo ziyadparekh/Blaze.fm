@@ -2,20 +2,12 @@
 @grid-columns:              24;
 @grid-gutter-width:         15px;
 @icon-font-path: '/bower_components/bootstrap/fonts/';
-@import "pagedown.less";
-@import "textarea.less";
 @import "variables.less";
-@import "elements.less";
-@import "columns.less";
-@import "buttons.less";
-@import "images.less";
-@import "error.less";
 @import "base-elements.less";
-@import "metabar.less";
-@import "hero.less";
-@import "collections.less";
-@import "math-preview.less";
-@import "cards.less";
+@import "icons.less";
+@import "buttons.less";
+@import "animations.less";
+@import "textarea.less";
 @import "../font/Serif/cmun-serif.less";
 
 
@@ -30,8 +22,15 @@ body{
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }
-html, body, .container{
+html, body{
 	height: 100%;
+	width: 100%;
+}
+#leftnav{
+	left: 0;
+}
+.container{
+	width: 100%;
 }
 // i{
 // 	color: @white;
@@ -45,4 +44,21 @@ h4{
 .hidden{
 	display: none;
 	visibility: hidden;
+}
+.left{
+	left: 20.8333336%;
+}
+.fixed{
+	position: fixed;
+}
+
+//links
+a{
+	color: @orange;
+}
+a:hover{
+	color: lighten(@orange, 10%);
+}
+a:focus{
+	color: lighten(@orange, 10%);
 }

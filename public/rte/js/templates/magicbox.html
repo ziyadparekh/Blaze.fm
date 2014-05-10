@@ -1,0 +1,37 @@
+<div class='col-xs-24 magicbox profilebox'>
+	<div class='col-xs-24 placeholder'>What are you thinking?</div>
+	<div class='composer hidden'>
+		<textarea id='recorder' class='col-xs-24 editor profile border-bottom' placeholder='Click to start' maxlength='160'></textarea>
+		<textarea id='playback' class='col-xs-24 editor profile preview hidden border-bottom' disabled></textarea>
+		<div class='col-xs-24 toolbar'>
+			<div class='col-xs-7 tools'>
+				<ul class='nav nav-justified'>
+					<li>
+						<a class='btn btn-sm btn-default btn-tools btn-pause' data-toggle="tooltip" data-placement="bottom" title="Pause">
+							<i class="fa fa-pause"></i>
+						</a>
+					</li>
+					<li>
+						<a class='btn btn-sm btn-default btn-tools btn-preview' data-toggle="tooltip" data-placement="bottom" title="Preview">
+							<i class="fa fa-clock-o"></i>
+						</a>
+					</li>
+					<li>
+						<div class="btn-group">
+							<a id='privacy-toggle' class="btn btn-sm btn-default btn-tools dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-globe"></i> <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a id='public' class='privacy-choice' href="#"><i class="fa fa-globe"></i></a></li>
+								<li><a id='private' class='privacy-choice' href="#"><i class="fa fa-lock"></i></a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class='col-xs-17 publish-bar'>
+				<button class='btn btn-success btn-sm pull-right' id='post-message'>Send</button>
+			</div>
+		</div>
+	</div>
+</div>

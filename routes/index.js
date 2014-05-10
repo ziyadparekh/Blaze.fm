@@ -8,7 +8,6 @@ var pjson = require('../package.json');
   	if(req)
   		var user = JSON.stringify(req.user);
   	var url = "http://localhost:3010";
-  	console.log(url);
   	res.render('helix',{url:url, user: user});
   }
   exports.login = function(req, res){

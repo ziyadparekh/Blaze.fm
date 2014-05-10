@@ -4,15 +4,15 @@ require.config({
 		underscore : '../../bower_components/underscore/underscore',
 		jquery     : '../../bower_components/jquery/dist/jquery.min',
 		backbone   : '../../bower_components/backbone/backbone',
-		marionette : '../../bower_components/marionette/lib/backbone.marionette',
+		marionette : 'lib/backbone.marionette',
 		'backbone.wreqr' : '../../bower_components/backbone.wreqr/lib/backbone.wreqr.min',
 		'backbone.babysitter' : '../../bower_components/backbone.babysitter/lib/backbone.babysitter.min',
 		bootstrap  : '../../bower_components/bootstrap/dist/js/bootstrap.min',
 		moment     : '../../bower_components/moment/min/moment.min',
 		localstorage: "../../bower_components/backbone.localstorage/backbone.localStorage-min",
 		text       : 'lib/text',
-		preview	   : 'lib/preview',
-		medium : 'lib/medium-editor',
+		d3		   : '../../bower_components/d3/d3.min',
+		playback   : 'lib/playback'
 	},
 	shim : {
 		"bootstrap": ["jquery"],
@@ -34,19 +34,12 @@ require.config({
 		'backbone.wreqr' : {
 			deps : ['backbone']
 		},
-		medium: {
-			exports: "MediumEditor"
+		d3 : {
+			exports : 'd3'
 		},
-		// marked:{
-		// 	exports:'marked',
-		// },
-		preview:{
-			exports: 'Preview'
+		playback:{
+			exports : 'Playback'
 		}
-		// pagedownBootstrap:{
-		// 	exports : 'pagedownBootstrap',
-		// 	deps : ['jquery', 'bootstrap']
-		// }
 	},
 	deps : ['jquery','underscore','requireLib']
 });
@@ -57,8 +50,10 @@ require(['app',
 	'router/index',
 	'controller/index',
 	'models/me',
+	'views/header',
+	'views/leftnav',
 	'bootstrap'
-	],function(app,Backbone,Wreqr,Router,Controller, Me){
+	],function(app,Backbone,Wreqr,Router,Controller, Me, Header, LeftNav){
 		"use strict";
 
 		$('body').on('click', 'a', function(e){
@@ -72,7 +67,36 @@ require(['app',
 				$("html, body").delay(200).animate({ scrollTop: 0 }, 300);
 			}
 		});
-		
+		$("#container-body").on("click", function(e){
+			var $body = $("#container-body"),
+			$leftnav = $("#leftnav"),
+			$maze = $("#profile-maze"),
+			$logo = $(".logo");
+			if($leftnav.is(":visible")){
+				$maze.removeClass('left');
+				$body.removeClass('left');
+				setTimeout(function(){
+					$leftnav.addClass("hidden");
+					$body.removeClass('fixed');
+					$logo.removeClass('hidden');
+				}, 400)
+			}
+		})
+		$("#leftnav").on("click", function(e){
+			var $body = $("#container-body"),
+			$leftnav = $("#leftnav"),
+			$maze = $("#profile-maze"),
+			$logo = $(".logo");
+			if($leftnav.is(":visible")){
+				$maze.removeClass('left');
+				$body.removeClass('left');
+				setTimeout(function(){
+					$leftnav.addClass("hidden");
+					$body.removeClass('fixed');
+					$logo.removeClass('hidden');
+				}, 400)
+			}
+		})
 		
 		Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
 			var template = templateId;
@@ -89,20 +113,19 @@ require(['app',
 			this.$el.empty().append(view.el);
 			this.$el.fadeIn("fast");
 		}
-
 		//initialize marked
-		marked.setOptions({
-		  renderer: new marked.Renderer(),
-		  gfm: true,
-		  tables: true,
-		  breaks: false,
-		  pedantic: false,
-		  sanitize: false, // IMPORTANT, because we do MathJax before markdown,
-		                   //            however we do escaping in 'CreatePreview'.
-		  smartLists: true,
-		  smartypants: false
-		});	
-		//
+		// marked.setOptions({
+		//   renderer: new marked.Renderer(),
+		//   gfm: true,
+		//   tables: true,
+		//   breaks: false,
+		//   pedantic: false,
+		//   sanitize: false, // IMPORTANT, because we do MathJax before markdown,
+		//                    //            however we do escaping in 'CreatePreview'.
+		//   smartLists: true,
+		//   smartypants: false
+		// });	
+		// //
 
 		app.start();
 		app.vent = new Backbone.Wreqr.EventAggregator();
@@ -113,10 +136,13 @@ require(['app',
 
 		
 		app.vent.on('load_page',function(page) {
+			if(page == 'user')
+				app.userModel = false;
 		});
 
-		app.me = new Me(user);
-		
+		app.me = new Me(me);
+		app.header.show(new Header());
+		app.left.show(new LeftNav({model: app.me}));
 		Backbone.history.start({pushState: true});
 
 	});

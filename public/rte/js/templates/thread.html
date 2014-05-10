@@ -1,0 +1,38 @@
+<div id='post-<%=id%>' class='col-xs-21'>
+	<div class='col-xs-24 thread-single thread border-bottom'>
+		<div class='col-xs-2 img-box' data-toggle="tooltip" data-placement="left" title="<%=user.name%>">
+			<a href='/user/<%=user.id%>'>
+				<image class='image-big image-round' src='<%=user.image%>' />
+				</a>
+			</div>
+			<div class='col-xs-21 thread-item'>
+				<div id='thread-<%=id%>' class='col-xs-24 editor profile preview hidden' disabled></div>
+				<div id='preview-<%=id%>' class='col-xs-24 short-preview editor'><%=preview%>... <a id="show-<%=id%>" class='show-more'>open</a></div>
+			</div>
+		</div>
+		<div class='col-xs-24 toolbar'>
+			<div class='col-xs-4 tools'>
+				<ul class='nav nav-justified'>
+					<li>
+						<a id="play-<%=id%>" class='btn btn-sm btn-default btn-tools btn-play' data-toggle="tooltip" data-placement="left" title="repeat">
+							<i class="fa fa-play"></i>
+						</a>
+					</li>
+					<li>
+						<a class='btn btn-sm btn-default btn-tools btn-play' data-toggle="tooltip" data-placement="bottom" title="privacy" disabled>
+							<%if(privacy == 0){%>
+							<i class="fa fa-globe"></i>
+							<%}else{%>
+							<i class="fa fa-lock"></i>
+							<%}%>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class='col-xs-20 publish-bar pull-left'>
+				<%if(user.id == me.id || receiver.id == me.id){%>
+				<button class='btn btn-danger btn-sm pull-right btn-delete' id='delete-<%=id%>'>X</button>
+				<%}%>
+			</div>
+		</div>
+	</div>

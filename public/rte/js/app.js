@@ -8,8 +8,8 @@ define(
         app.addRegions({
             header        : '#header',
             center        : '#center-container',
-            collection    : '#collection-container',
-            errorRegion   : '#error'
+            errorRegion   : '#error',
+            left          : '#leftnav'
         });
         app.strip = function(str) {
             return (str + '').replace(/\\(.?)/g, function (s, n1) {

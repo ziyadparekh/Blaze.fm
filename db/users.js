@@ -25,7 +25,6 @@
  * @param next
  */
  exports.render = function(id, req, done, next) {
-
  	var render_user = function (user, req, done, next) {
  		if (!id || isNaN(id) || id == 0) {
  			return done(null, anon);

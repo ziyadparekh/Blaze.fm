@@ -1,177 +1,96 @@
-.btn{
-	display: inline-block;
-	position: relative;
-	height: 38px;
-	line-height: 37px;
-	padding: 0 16px;
-	border: 0;
-	outline: 0;
-	color: #8e8e8c;
-	background: rgba(0,0,0,0);
-	font-size: 14px;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	border: 1px solid #dededc;
-	vertical-align: bottom;
-	white-space: nowrap;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-	letter-spacing: -0.02em;
-	font-weight: 400;
-	font-style: normal;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-border-radius: 999em;
-	-moz-border-radius: 999em;
-	border-radius: 999em;
-	-webkit-transition: .1s background-color,0.1s border-color,0.1s color;
-	-moz-transition: .1s background-color,0.1s border-color,0.1s color;
-	-ms-transition: .1s background-color,0.1s border-color,0.1s color;
-	-o-transition: .1s background-color,0.1s border-color,0.1s color;
-	transition: .1s background-color,0.1s border-color,0.1s color;
-}
-.btn:focus{
-	outline: none !important;
-}
-.btn-lg{
-	height: 44px;
-	line-height: 44px;
-	padding: 0 18px;
-}
 .btn-default{
-	color: @gray2;
-	background-color: transparent;
-	border: none;
-}
-.btn-primary{
-	border: 1px solid @blue;
-	background: transparent;
-	color: @blue;
-}
-.btn-success{
-	border: 1px solid @green;
-	background: transparent;
-	color: @white;
-}
-.btn-danger{
-	border: 1px solid @red;
-	border-radius: 0px;
-	background: transparent;
-	color: @red;
+	background: @black;
+	border: 1px solid darken(@black, 10%)
 }
 .btn-default:hover{
-	color: @white;
-	background-color: @gray2;
-	box-shadow: 1px 2px 1px darken(@gray2, 10%);
-	border: 0px;
+	background: lighten(@black, 10%);
+	border: 1px solid darken(@black, 10%)
 }
-.btn-primary:hover{
-	background: @blue;
-	color: @white;
+.btn-default:active{
+	background: @black;
+	border: 1px solid darken(@black, 10%)
+}
+.btn-default:focus{
+	background: @black;
+	border: 1px solid darken(@black, 10%)
+}
+.btn-menu{
+	padding: 6px 20.5px;
+}
+.btn-settings{
+	padding: 4px 8px 1px;
+}
+.btn-tools{
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	cursor: pointer;
+	i{
+		color: @orange;
+	}
+}
+.btn-tools:hover{
+	background-color: @white !important;
+	border: none;
+	border-bottom: 1px solid @orange;
+	i{
+		color: lighten(@orange, 10%);
+	}
+}
+.btn-tools:active{
+	background-color: @white !important;
+	border: none;
+	border-bottom: 1px solid @orange;
+	box-shadow: none;
+	outline: none !important;
+	i{
+		color: lighten(@orange, 10%);
+	}
+}
+.btn-tools.active{
+	background-color: @white !important;
+	border: none !important;
+	border-bottom: 1px solid @orange !important;
+	box-shadow: none !important;
+	outline: none !important;
+	i{
+		color: lighten(@orange, 10%);
+	}
+}
+.btn-tools:focus{
+	background-color: @white !important;
+	color: lighten(@orange, 10%);
+	border: none;
+	outline: none !important;
+	i{
+		color: lighten(@orange, 10%);
+	}
+}
+.btn-success{
+	margin-top: 5px;
+	margin-right: 10px;
+	background: @black;
+	color: @orange;
+	padding: 5px 25px;
+	border-radius: 1px;
+	border-width: 0px;
+	border: 1px solid @black;
 }
 .btn-success:hover{
-	border-color: @green !important;
-	background: @green;
-	color: @white;
+	background: @orange;
+	color: @black;
+	border: 1px solid @orange;
 }
-.btn-danger:hover{
-	background: @red;
-	color: @white;
+.btn-success:focus{
+	background: @orange;
+	color: @black;
+	border: 1px solid @orange;
+	outline: none !important;
 }
-.btn-facebook{
-	border: 1px solid @facebook;
-	border-radius: 0px;
-	background: transparent;
-	color: @facebook;
+.btn-success:active{
+	box-shadow: none;
 }
-.btn-facebook:hover{
-	background: @facebook;
-	color: @white;
-}
-.btn-facebook:focus, .btn-facebook:active{
-	background-color: @facebook;
-	color: @white;
-	outline: 0;
-}
-.btn-primary:focus, .btn-primary:active{
-	background-color: @blue;
-	color: @white;
-	outline: 0;
-}
-.btn-success:focus, .btn-success:active{
-	background-color: @green;
-	color: @white;
-	outline: 0;
-}
-.btn{
-	display: block;
-	-webkit-transition: all 100ms ease-in-out;
-	-moz-transition: all 100ms ease-in-out;
-	-o-transition: all 100ms ease-in-out;
-	-ms-transition: all 100ms ease-in-out;
-	transition: all 100ms ease-in-out;
-}
-.btn-picture{
-	margin-right: auto;
-	margin-left: auto;
-	margin-left: auto;
-	margin-right: auto;
-	background: transparent;
-	font-size: 64px;
-	outline: none;
-	height: inherit;
-	border: none;
-}
-.btn-picture:active{
-	outline: none;
-	box-shadow: 0px;
-	-webkit-box-shadow: 0px;
-}
-.btn-picture:focus{
-	outline: none;
-	box-shadow: 0px;
-	-webkit-box-shadow: 0px;
-}
-.btn-collection{
-	margin-right: auto;
-	margin-left: auto;
-}
-.btn-set{
-	margin-right: 8px;
-	vertical-align: middle;
-}
-.btn-light{
-	border-color: rgba(255,255,255,0.5);
-	background: rgba(0,0,0,0);
-	color: @white;
-}
-.btn-light:hover{
-	color: @white;
-	text-decoration: none;
-	border-color: @white;
-}
-.following{
-	background-color: @green;
-	border-color: @green;
-}
-.btn-sm, .btn-group-sm > .btn {
-	padding: 5px 10px;
-	font-size: 12px;
-	line-height: 1.5;
-	margin-left: auto;
-	margin-right: auto;
-	z-index: 1000;
-}
-.btn-cancel{
-	float: left;
-	margin-right: 25px;
+
+.btn-follow{
+	background-color: lighten(@black, 10%)
 }

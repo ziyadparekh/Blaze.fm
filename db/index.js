@@ -1,3 +1,2 @@
 exports.users = require('./users');
-exports.collections = require('./collections');
-exports.posts = require('./posts');
+exports.thread = require('./thread');

@@ -1,0 +1,29 @@
+<div class='col-xs-20 align-center user-wrapper'>
+	<div class='col-xs-24 metaheader metaheader-profile'>
+		<div class='profile-image-holder pull-left'>
+			<img src='<%= image %>' class='image image-med image-border'>
+		</div>
+		<div class='profile-name-holder offset-left'>
+			<h1 class='user-name block-middle centered pull-left'><%= name %></h1>
+		</div>
+		<%if(me.id == id){%>
+		<div class='pull-right settings-holder'>
+			<button type="button" class="btn btn-default btn-sm btn-settings btn-menu"><i class="fa fa-cog"></i></button>
+		</div>
+		<%}%>
+	</div>
+	<div class='profile-body col-xs-24'>
+		<div class='left-menu col-xs-5'>
+			<%if(me.id != id){%>
+			<div class='col-xs-21 align-center padding-left margin-bottom'>
+				<button type='button' class='btn btn-success btn-follow col-xs-24'>Follow</button>
+			</div>
+			<%}%>
+			<div class="btn-group col-xs-23 align-center">
+				<button type="button" class="btn btn-default btn-menu"><i class="fa fa-inbox"></i></button>
+				<button type="button" class="btn btn-default btn-menu"><i class="fa fa-comments-o"></i></button>
+			</div>
+		</div>
+		<div id='content-body' class='content-body col-xs-19'></div>
+	</div>
+</div>

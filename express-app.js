@@ -20,9 +20,8 @@ app.use(function(req, res, next) {
 
 //routes
 var index = require('./routes/index')
-	,users = require('./routes/api/users')
-    ,collections = require('./routes/api/collections')
-	,posts = require('./routes/api/posts')
+    ,users = require('./routes/api/users')
+	,thread = require('./routes/api/thread')
     ,bodyParser = require('body-parser');
 
 //static and port
@@ -94,9 +93,7 @@ require('./modules/auth');
 
 //status
 app.get('/status', index.status);
-//paths for html
-app.get('/', ensureLoggedIn('/login'), index.rte);
-app.get('/rte/*', ensureLoggedIn('/login'), index.rte);
+//app.get('/rte/*', ensureLoggedIn('/login'), index.rte);
 app.get('/login', index.login);
 //logins
 app.get('/auth/facebook', passport.authenticate('facebook'));
@@ -107,20 +104,28 @@ app.get('/logout', index.logout);
 //users
 app.get('/'+version+'/users/:id',ensureLoggedIn('/login'), users.show);
 
+//public threads
+app.post('/'+version+'/broadcast', ensureLoggedIn('/login'), thread.broadcast);
+app.get('/'+version+'/broadcast/:id', ensureLoggedIn('/login'), thread.feed);
+app.delete('/'+version+'/thread/:id', ensureLoggedIn('/login'), thread.remove);
+
 //collections
-app.post('/'+version+'/create', ensureLoggedIn('/login'), collections.create);
-app.get('/'+version+'/collection/available', ensureLoggedIn('/login'), collections.titleAvailable);
-app.get('/'+version+'/collection/search', ensureLoggedIn('/login'), collections.search);
-app.get('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.find);
-app.put('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.update);
-app.post('/'+version+'/collection/:id/follow', ensureLoggedIn('/login'), collections.follow);
-app.delete('/'+version+'/collection/:id/follow', ensureLoggedIn('/login'), collections.unfollow);
-app.get('/'+version+'/collections/followed', ensureLoggedIn('/login'), collections.followed);
+// app.post('/'+version+'/create', ensureLoggedIn('/login'), collections.create);
+// app.get('/'+version+'/collection/available', ensureLoggedIn('/login'), collections.titleAvailable);
+// app.get('/'+version+'/collection/search', ensureLoggedIn('/login'), collections.search);
+// app.get('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.find);
+// app.put('/'+version+'/collection/:id', ensureLoggedIn('/login'), collections.update);
+// app.post('/'+version+'/collection/:id/follow', ensureLoggedIn('/login'), collections.follow);
+// app.delete('/'+version+'/collection/:id/follow', ensureLoggedIn('/login'), collections.unfollow);
+// app.get('/'+version+'/collections/followed', ensureLoggedIn('/login'), collections.followed);
 
 //posts
-app.post('/'+version+'/post/create', ensureLoggedIn('/login'), posts.create);
-app.get('/'+version+'/post/:id', ensureLoggedIn('/login'), posts.find);
-app.delete('/'+version+'/post/:id', ensureLoggedIn('/login'), posts.remove);
+// app.post('/'+version+'/post/create', ensureLoggedIn('/login'), posts.create);
+// app.get('/'+version+'/post/:id', ensureLoggedIn('/login'), posts.find);
+// app.delete('/'+version+'/post/:id', ensureLoggedIn('/login'), posts.remove);
+
+//paths for html
+app.get('/*', ensureLoggedIn('/login'), index.index);
 //default
 app.get('*', index.notfound);
 

@@ -1,0 +1,39 @@
+.spinning_cog {
+	-webkit-animation: spinning_cog 1.3s infinite ease;
+	-moz-animation: spinning_cog 1.3s infinite ease;
+	-ms-animation: spinning_cog 1.3s infinite ease;
+	-o-animation: spinning_cog 1.3s infinite ease;
+	animation: spinning_cog 1.3s infinite ease;
+}
+
+@-webkit-keyframes spinning_cog {
+	0% { -webkit-transform: rotate(0deg) }
+	20% { -webkit-transform: rotate(-45deg) }
+	100% { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes spinning_cog {
+	0% { -moz-transform: rotate(0deg) }
+	20% { -moz-transform: rotate(-45deg) }
+	100% { -moz-transform: rotate(360deg) }
+}
+
+@-o-keyframes spinning_cog {
+	0% { -o-transform: rotate(0deg) }
+	20% { -o-transform: rotate(-45deg) }
+	100% { -o-transform: rotate(360deg) }
+}
+
+@keyframes spinning_cog {
+	0% { transform: rotate(0deg) }
+	20% { transform: rotate(-45deg) }
+	100% { transform: rotate(360deg) }
+}
+
+#container-body, #profile-maze{
+	-webkit-transition: all 300ms ease-in-out;
+	-moz-transition: all 300ms ease-in-out;
+	-o-transition: all 300ms ease-in-out;
+	-ms-transition: all 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
+}

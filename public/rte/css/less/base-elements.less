@@ -1,62 +1,227 @@
-.container{
-	background: #fff;
-	height: 100%;
-	-webkit-transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
-	-moz-transition: -moz-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
-	-o-transition: -o-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
-	transition: transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
-	width: 100%;
-	padding: 0px;
+//container
+.contentzone{
+	left: 0%;
+	background-color: @white;
 }
-.surface{
-	top: 0;
-	height: 100%;
-	width: 100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: padding-bottom .1s;
-	-moz-transition: padding-bottom .1s;
-	-ms-transition: padding-bottom .1s;
-	-o-transition: padding-bottom .1s;
-	transition: padding-bottom .1s;
+//borders
+.border-bottom{
+	border-bottom: 1px solid @newgray !important;
 }
-.screen-content{
-	height: 100%;
-	outline: 0;
-	background-color: #fff;
-	position: absolute;
-	width: 100%;
+
+//columns
+.col-xs-24{
+	padding-left: 0px;
+	padding-right: 0px;
 }
-.image-full-bleed{
-	background: #191918;
+.col-xs-20, .col-xs-22{
+	float: none;
+	padding-left: 0px;
+	padding-right: 0px;
 }
-.image-full-bleed, .img-src{
+.col-xs-5{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.col-xs-19, .col-xs-18, .col-xs-21{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+//depth
+.behind{
+	z-index: 100;
+}
+.ahead{
+	z-index: 200;
+}
+
+//body-parts
+.profile-maze{
 	position: fixed;
 	top: 0;
 	left: 0;
-	bottom: 0;
-	right: 0;
+	background-color: lighten(@black, 10%);
+}
+.profile-wrap{
+	height: 1000px;
+	background: @white;
+}
+.profile-image-holder{
+	display: inline-block;
+}
+.profile-name-holder{
+	width: 300px;
+	position: relative;
+	display: block;
+}
+.profile-body{
+	margin-top: 10px;
+}
+.user-wrapper{
+	height: inherit;
+}
+//metaheader
+.metaheader{
+
+}
+.metaheader-profile{
+	margin-top: -140px;
+}
+//alignment
+.align-middle{
+	margin-top: 170px;
+}
+.align-center{
+	margin-right: auto;
+	margin-left: auto;
+}
+.switch-left{
+	margin-left: 10px;
+}
+.block-middle:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.centered {
+	display: inline-block;
+	vertical-align: top;
+	width: 300px;
 }
 
-.layout-fill-height{
+//images
+.image{
+	display: block;
+}
+.image-med{
+	width: 200px;
+	height: 200px;
+}
+.image-sm{
+	width: 30px;
+}
+.image-big{
+	width: 40px;
+}
+.image-round{
+	border-radius: 999em;
+}
+.image-border{
+	border: 8px solid @white;
+}
+
+//titles
+.user-name{
+	margin-top: 100px;
+	margin-bottom: 0px;
+	color: @white;
+}
+.offset-left{
+	margin-left: 218px;
+}
+
+//settings
+.settings-holder{
+	margin-top: 105px;
+}
+
+//header+logo
+header{
+	z-index: 300;
+	position: fixed;
+}
+.logo{
+	font-family: "Computer Modern Serif", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-size: 22px;
+	color: @orange;
+	padding: 5px 13px 3px 15px;
+	background: @black;
+	z-index: 300;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+//left-navigation
+.leftnav-fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.leftnav{
+	background: @black;
 	height: 100%;
 }
-.layout-foreground {
-	position: relative;
-	z-index: 100;
+.leftnav-container{
+	margin-top: 40px;
 }
-.layout-single-column {
-	width: 640px;
-	margin: 0 auto;
+.list{
+	padding-left: 0;
+	list-style-type: none;
 }
-.align-middle:before {
-	content: '';
-	height: 100%;
-	display: inline-block;
-	vertical-align: middle;
+.leftnav-li{
+	line-height: 40px;
 }
-.align-middle .align-block {
-	display: inline-block;
-	vertical-align: middle;
+.leftnav-logo{
+	font-family: "Computer Modern Serif", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-size: 22px;
+	color: @orange;
+	background: @black;
+	z-index: 300;
+	cursor: pointer;
+	text-align: center;
+}
+.leftnav-box{
+	margin-right: 15px;
+}
+
+//editor
+.onprofile{
+	margin-top: -50px;
+}
+.toolbar{
+	background-color: @white;
+}
+
+//privacy dropdown-menu
+.dropdown-menu{
+	min-width: 10px;
+}
+.btn-group.open .dropdown-toggle{
+	box-shadow: none !important;
+}
+.dropdown-toggle{
+	line-height: 30px;
+}
+.open>a{
+	border-color: @orange;
+}
+
+//profile-feed
+.profile-feed{
+	margin-top: 30px;
+}
+
+
+//thread
+.thread-single{
+	padding: 5px;
+	margin-top: 7.5px;
+	margin-bottom: 7.5px;
+}
+.short-preview{
+	font-family: Helvetica;
+}
+.show-more{
+	cursor: pointer;
+	font-size: 12px;
+}
+
+
+//margins and padding: 
+.padding-left{
+	padding-left: 7.5px;
+}
+.margin-bottom{
+	margin-bottom: 10px;
 }

@@ -1,103 +1,41 @@
-.post-header{
-	color: #333332;
-}
-.editable{
-	font-family: "Computer Modern Serif",Georgia,Cambria,"Times New Roman",Times,serif;
+.editor{
 	letter-spacing: .01rem;
-	font-weight: 400;
+	font-weight: 100;
 	font-style: normal;
-	font-size: 22px;
 	line-height: 1.5;
-	font-size: 22px;
-	outline: 0;
-	text-align: justify;
-}
-.post-title[data-placeholder]{
-	text-align: center;
-}
-.post-title, .collection-title{
-	font-family: "Computer Modern Serif", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	letter-spacing: -0.02em;
-	font-weight: 700;
-	font-style: normal;
-	letter-spacing: -0.04em;
-	font-size: 50px;
-	line-height: 1.1;
-	margin-bottom: 8px;
-	outline: none;
-	text-align: center;
-	word-wrap: break-word;
-	margin-bottom: 20px;
-}
-.post-subtitle, .collection-subtitle{
-	font-family: "Computer Modern Serif", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	letter-spacing: -0.02em;
-	font-weight: 300;
-	font-style: normal;
-	font-size: 20px;
-	line-height: 1.1;
-	color: #666665;
-	margin: 0;
-	outline: none;
-	text-align: justify;
-	padding: 0px 40px;
-	margin-bottom: 20px;
-}
-.post-body{
-	font-size: 22px;
-}
-pre{
-	font-family: Monaco,'Courier New','Courier',monospace;
 	font-size: 16px;
-	background: rgba(0,0,0,0.05);
-	margin-bottom: 20px;
-	padding: 20px;
-	border: 0px;
-}
-textarea{
+	outline: 0;
+	word-wrap: break-word;
 	resize: none;
 	background: transparent;
-}
-.input-text{
-	margin-right: auto;
-	margin-left: auto;
-	display: block;
-	padding: 10px 17px;
-	outline: 0;
+	padding: 5px 7.5px;
+	height: 55px;
 	border: none;
-	text-align: center;
-	width: 100%;
-}
-.input-image{
-	width: 420px;
-	font-size: 18px;
-}
-.input-group{
-	width: 100%;
-}
-.input-text-rounded{
-	-webkit-border-radius: 999em;
-	-moz-border-radius: 999em;
-	border-radius: 999em;
-	border: 1px solid #dededc;
-	text-align: left;
+	font-family: 'Helvetica';
 }
 
-.post-preview{
-	font-family: "Computer Modern Serif", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	zoom: 0.6;
-	padding: 80px 80px;
-	zoom: 0.6;
-	padding: 80px 0px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding-top: 200px;
-	margin-right: 40px;
-	text-align: justify;
-	opacity: 0;
+.placeholder{
+	cursor: pointer;
+	border: 1px solid @newgray;
+	padding: 10px 5px;
+	color: @newgray;
 }
-.post-wrap{
-	font-family: "Computer Modern Serif", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	text-align: justify;
+.placeholder:after, .placeholder:before{
+	content: "";
+	position: absolute;
+	top: -11px;
+	left: 11px;
+	border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+	border-bottom: 11px solid @white;
+}
+.placeholder:before{
+	top: -12px;
+	left: 10px;
+	position: absolute;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: solid;
+	border-bottom-color: @newgray;
+	border-bottom-width: 12px;
 }
